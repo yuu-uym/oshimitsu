@@ -1,0 +1,62 @@
+.footer {
+  background-color: #FFBBFF;
+  width: 100vw;
+  height: 100px;
+}
+
+.footer .inner {
+  padding: 10px;
+}
+
+.copyright {
+  font-size: 10px;
+  text-align: center;
+  color: #333;
+}
+
+.page-top {
+  font-size: 10px;
+  padding: 10px;
+  text-align: center;
+  background-color: #FFDDFF;
+}
+
+.gnav-list {
+  display: flex;
+  justify-content: center;
+}
+
+.gnav-item {
+  font-size: 16px;
+  padding: 0 24px;
+  list-style: none;
+}
+
+.gnav-link {
+  position: relative;
+  padding: 5px 0;
+  color: #333;
+  text-decoration: none;
+}
+
+/* 下線の装飾 */
+.gnav-link:hover {
+  opacity: 1;
+}
+
+.gnav-link:after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  content: "";
+  transition: .3s;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color:#333;
+}
+
+.gnav-link:hover:after {
+  width: 100%;
+}
