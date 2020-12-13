@@ -1,0 +1,83 @@
+<%= render "shared/header" %>
+
+<div class='main'>
+
+  <%# 画面上部の「アプリの説明」帯部分 %>
+  <div class='title-contents'>
+   <br>
+   <br>
+    <h2 class='service-title'>アプリのテーマ</h2>
+    <p class='service-explanation'>
+    アプリの説明が入ります
+    <br>アプリの説明が入ります
+    <br>アプリの説明が入ります
+    </p>
+  </div>
+  <%# /画面上部の「アプリの説明」帯部分  %>
+
+  <%# 金額の可視化部分 %>
+    <div class='price-contents'>
+      <div class='price-all'>
+        <h3 class='price-title'>全体の金額</h3>
+        <p class='all-details'>
+        今月使った金額は＃＃円です。
+        <br>累計で＃＃円使っています。
+       </p>
+      </div>
+      <div class='price-genre'>
+        <h3 class='price-title'>ジャンル別の金額</h3>
+        <p class='genre-details'>
+        今月使った金額は＃＃円です。
+        <br>累計で＃＃円使っています。
+       </p>
+      </div>
+      <div class='price-category'>
+        <h3 class='price-title'>カテゴリー別の金額</h3>
+        <p class='category-details'>
+        今月使った金額は＃＃円です。
+        <br>累計で＃＃円使っています。
+       </p>
+      </div>
+   </div>
+
+  <%# 金額の可視化部分 %>
+      
+  <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
+<div class='genre-contents'>
+    <h2 class='title'>ジャンル一覧</h2>
+    <ul class='genre-lists'>
+    <li class='genre-list'>
+        <%= link_to "#" do %>
+        <div class='genre-img-content'>
+          <%# <%= image_tag "item-sample.png", class: "item-img" %> 
+        </div>
+        <div class='genre-info'>
+          <h3 class='genre-name'>
+            <%= "ジャンル名" %>
+          </h3>
+          <div class='genre-amoust'>
+            <%= "月額上限" %>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      <li class='genre-list'>
+        <%= link_to "#" do %>
+        <div class='genre-img-content'>
+          <%# <%= image_tag "item-sample.png", class: "item-img" %> 
+        </div>
+        <div class='genre-info'>
+          <h3 class='genre-name'>
+            <%= "ジャンル名" %>
+          </h3>
+          <div class='genre-amoust'>
+            <%= "月額上限" %>
+          </div>
+        </div>
+        <% end %>
+      </li>
+      </ul>
+</div>
+  <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
+  
+<%= render "shared/footer" %>
