@@ -22,6 +22,20 @@ class GenresController < ApplicationController
     @genre = Genre.find(params[:id])
   end
 
+  def edit
+    @genre = Genre.find(params[:id])
+    redirect_to action: :index if @genre.user_id != current_user.id 
+  end
+
+  def update
+    @genre = Genre.find(params[:id])
+    if @genre.update(genre_params)
+      redirect_to genre_path
+    else
+      render :edit
+    end
+  end
+
   def genre_params
     params.require(:genre).permit(:theme, :image, :set_amount).merge(user_id: current_user.id)
   end
