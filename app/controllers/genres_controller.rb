@@ -36,6 +36,16 @@ class GenresController < ApplicationController
     end
   end
 
+  def destroy
+    @genre = Genre.find(params[:id])
+    if @genre.user_id == current_user.id
+      @genre.destroy
+      redirect_to root_path
+    else
+      edirect_to action: :index
+    end
+  end
+
   def genre_params
     params.require(:genre).permit(:theme, :image, :set_amount).merge(user_id: current_user.id)
   end
