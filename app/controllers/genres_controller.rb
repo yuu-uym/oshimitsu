@@ -20,6 +20,7 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
+    @items = Item.all
   end
 
   def edit

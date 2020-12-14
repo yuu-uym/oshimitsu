@@ -38,6 +38,20 @@
       <ul class='list'>
       <li><%="カテゴリー名" %><%="商品名" %><%="個数" %><%="金額" %><%="発売日" %><%="購入日" %></li>
       </ul>
+<div class='genre-contents'>
+     <% @items.each do |item| %>
+      <ul class='items-list'>
+        <li>
+          <div class='item-name'>
+          <%= item.name %>
+          </div>
+          <div class ='item-price'>
+          <%= item.price %>円
+          </div>
+        </div>
+      </li>
+     </ul>
+  <% end %>
   <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
       
 <%= render "shared/footer" %>
