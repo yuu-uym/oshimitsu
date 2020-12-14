@@ -2,8 +2,8 @@
 <header class='top-page-header'>
      <div id="js-page-top" class="page-top">
         <ul class="gnav-list">
-          <li class="gnav-item"><a class="gnav-link" href="#">トップページ</a></li>
-          <li class="gnav-item"><a class="gnav-link" href="#">ジャンル追加</a></li>
+          <li class="gnav-item"><%= link_to 'トップページ', root_path, class: "gnav-link" %></li>
+          <li class="gnav-item"><%= link_to 'ジャンル追加', new_genre_path, class: "gnav-link" %></li>
         <% if user_signed_in? %>
           <li class="gnav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "gnav-link" %></li>
         <% else %> 
@@ -13,3 +13,4 @@
         </ul>
       </div>
 </header>
+
