@@ -14,7 +14,7 @@
     </p>
   </div>
   <%# /画面上部の「アプリの説明」帯部分  %>
-
+<% if user_signed_in? %>
   <%# 金額の可視化部分 %>
     <div class='price-contents'>
       <div class='price-all'>
@@ -78,6 +78,7 @@
       </li>
       </ul>
 </div>
+<% end %>
   <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
   
 <%= render "shared/footer" %>
