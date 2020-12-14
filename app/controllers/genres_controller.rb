@@ -18,6 +18,9 @@ class GenresController < ApplicationController
     end
   end
 
+  def show
+  end
+
   def genre_params
     params.require(:genre).permit(:theme, :image, :set_amount).merge(user_id: current_user.id)
   end
