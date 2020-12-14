@@ -15,13 +15,24 @@
   padding: 15px;
 }
 
+.title{
+  text-align: center;
+}
 
 .genre-contents{
   text-align: center;
-}
-.genre-lists{
   display: flex;
   justify-content: space-around;
-  margin: 0 20px;
-  padding: 15px;
+  list-style: none;
+}
+.genre-lists{
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-img {
+  width: 33vh;
+  height: 33vh;
 }
