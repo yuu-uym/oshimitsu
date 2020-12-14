@@ -7,7 +7,16 @@ class GenresController < ApplicationController
     @genre = Genre.new
   end
 
-  def message_params
-    params.require(:genre).permit(:theme, :image).merge(user_id: current_user.id)
+  def create
+    @genre = Genre.new(genre_params)
+    if @genre.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
+
+  def genre_params
+    params.require(:genre).permit(:theme, :image, :set_amount).merge(user_id: current_user.id)
   end
 end
