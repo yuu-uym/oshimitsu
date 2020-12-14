@@ -35,20 +35,20 @@
   <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
 <h2 class='title'>アイテム一覧</h2>
 <%= link_to 'アイテム追加', new_genre_item_path(@genre.id) %>
-      <ul class='list'>
+      <ul class='item-list'>
       <li><%="カテゴリー名" %><%="商品名" %><%="個数" %><%="金額" %><%="発売日" %><%="購入日" %></li>
       </ul>
 <div class='item-contents'>
      <% @items.each do |item| %>
       <ul class='item-list'>
         <li>
-          <div class='item-name'>
+          <%= item.category.name %>
           <%= item.name %>
-          </div>
-          <div class ='item-price'>
           <%= item.price %>円
-          </div>
-        </div>
+          <%= item.quantity_id %>個
+          <%= item.release_date %>
+          <%= item.purchase_date %>
+          <%= item.status.name %>
       </li>
      </ul>
   <% end %>
