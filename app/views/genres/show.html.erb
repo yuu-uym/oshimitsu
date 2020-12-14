@@ -2,8 +2,10 @@
   <%# 金額の可視化部分 %>
   <div class ="page-title">
   <h1><br><%= "#{@genre.theme}のお部屋" %></h1>
+   <div class="list">
         <%= link_to '編集', edit_genre_path, class: "item-red-btn" %>
         <%= link_to '削除', genre_path, method: :delete, class:'item-destroy' %>
+  </div>
   <br><%= image_tag @genre.image, class: "item-img"  %>
     <div class='price-contents'>
       <div class='price-all'>
