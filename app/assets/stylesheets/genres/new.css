@@ -1,7 +1,7 @@
 /* border-bottom: 1px solid #eee; */
 
 
-.items-sell-contents {
+.genre-input-contents {
   background-color: #f5f5f5;
   font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
   font-size: 14px;
@@ -11,19 +11,19 @@
   min-width: 500px;
 }
 
-.items-sell-header {
+.genre-input-header {
   padding: 5vh 0;
   text-align: center;
 }
 
-.items-sell-main {
+.genre-input-main {
   background-color: #FFF;
   width: 70vw;
   min-width: 450px;
   padding: 10vh 15vw;
 }
 
-.items-sell-title {
+.genre-input-title {
   font-size: 22px;
   font-weight: bold;
   text-align: center;
@@ -129,8 +129,8 @@
 
 /* /商品の詳細など */
 
-/* 販売価格 */
-.sell-price {
+/*月額上限 */
+.set-amount {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -151,7 +151,7 @@
   align-items: center;
 }
 
-.sell-yen {
+.price-yen {
   font-size: 18px;
 }
 
@@ -176,12 +176,12 @@
 /* /注意書き */
 
 /* 下部ボタン */
-.sell-btn-contents {
+.input-btn-contents {
   width: 100%;
   text-align: center;
 }
 
-.sell-btn {
+.input-btn {
   background: #e77dd6;
   border: 1px solid #e77dd6;
   color: #fff;
@@ -201,7 +201,7 @@
 
 /* /下部ボタン */
 
-.items-sell-footer {
+.genre-input-footer {
   background-color: #f5f5f5;
   width: 60vw;
   padding: 3ch 0;
@@ -211,7 +211,7 @@
 }
 
 
-.items-sell-footer>.menu {
+.genre-input-footer>.menu {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
-<div class="items-sell-contents">
-  <div class="items-sell-main">
-    <h2 class="items-sell-title">ジャンルの修正</h2>
+<div class="genre-input-contents">
+  <div class="genre-input-main">
+    <h2 class="genre-input-title">ジャンルの修正</h2>
     <%= form_with model: @genre, url: genre_path, local: true do |f| %>
 
         <%= render 'shared/error_messages', model: f.object %>
@@ -30,7 +30,7 @@
     <%# /テーマ名 %>
 
        <%# 月額上限設定 %>
-    <div class="sell-price">
+    <div class="set-amount">
       <div class="weight-bold-text question-text">
         <span>月額上限<br>(¥300〜9,999,999)</span>
       </div>
@@ -39,7 +39,7 @@
           <div class="price-text">
             <span>価格</span>
           </div>
-          <span class="sell-yen">¥</span>
+          <span class="price-yen">¥</span>
           <%= f.text_field :set_amount, class:"price-input", id:"item-price", placeholder:"例）30,000" %>
         </div>
         </span>
@@ -47,8 +47,8 @@
     </div>
     <%# /月額上限設定 %>
 
-    <div class="sell-btn-contents">
-      <%= f.submit "登録する", class:"sell-btn" %>
+    <div class="input-btn-contents">
+      <%= f.submit "登録する", class:"input-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
 

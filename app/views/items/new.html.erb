@@ -1,7 +1,7 @@
  <%= render "shared/header" %>
-<div class="items-sell-contents">
-  <div class="items-sell-main">
-    <h2 class="items-sell-title">アイテムの情報を入力</h2>
+<div class="genre-input-contents">
+  <div class="genre-input-main">
+    <h2 class="genre-input-title">アイテムの情報を入力</h2>
     <%= form_with model: @item, url: genre_items_path, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %> 
@@ -42,19 +42,19 @@
             <span class="indispensable">必須</span>
           </div>
           <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）5000" %>
-          <span class="sell-yen">円</span>
+          <span class="price-yen">円</span>
           <div class="weight-bold-text">
             <span>個数</span>
             <span class="indispensable">必須</span>
           </div>
           <%= f.text_field :quantity_id, class:"price-input", id:"item-price", placeholder:"例）5000" %>
-          <span class="sell-yen">個</span>
+          <span class="price-yen">個</span>
      </div>
     </div>
     <%# /アイテム詳細 %>
 
-    <div class="sell-btn-contents">
-      <%= f.submit "登録する", class:"sell-btn" %>
+    <div class="input-btn-contents">
+      <%= f.submit "登録する", class:"input-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
 
