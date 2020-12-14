@@ -1,7 +1,8 @@
  <%= render "shared/header" %>
   <%# 金額の可視化部分 %>
   <div class ="page-title">
-  <h1><br><%= "ジャンルの名前" %></h1>
+  <h1><br><%= "#{@genre.theme}のお部屋" %></h1>
+  <%= image_tag @genre.image, class: "item-img"  %>
     <div class='price-contents'>
       <div class='price-all'>
         <h3 class='price-title'>全体の金額</h3>
@@ -11,21 +12,27 @@
        </p>
       </div>
       <div class='price-genre'>
-        <h3 class='price-title'>ジャンル別の金額</h3>
+        <h3 class='price-title'>カテゴリー別の金額</h3>
         <p class='genre-details'>
         今月使った金額は＃＃円です。
         <br>累計で＃＃円使っています。
        </p>
       </div>
       <div class='price-category'>
-        <h3 class='price-title'>カテゴリー別の金額</h3>
+        <h3 class='price-title'>重要度別の金額</h3>
         <p class='category-details'>
         今月使った金額は＃＃円です。
         <br>累計で＃＃円使っています。
        </p>
       </div>
    </div>
-
   <%# 金額の可視化部分 %>
+
+  <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
+<h2 class='title'>アイテム一覧</h2>
+      <ul class='list'>
+      <li><%="カテゴリー名" %><%="商品名" %><%="個数" %><%="金額" %><%="発売日" %><%="購入日" %></li>
+      </ul>
+  <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
       
 <%= render "shared/footer" %>
