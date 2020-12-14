@@ -11,8 +11,8 @@
 .price-contents{
   display: flex;
   justify-content: space-around;
-  margin: 0 20px;
   padding: 15px;
+  background-color: white;
 }
 
 .title{
@@ -35,4 +35,8 @@
 .item-img {
   width: 33vh;
   height: 33vh;
+}
+
+.page-title{
+  text-align: center;
 }
