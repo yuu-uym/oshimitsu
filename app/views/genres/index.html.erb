@@ -20,25 +20,38 @@
       <div class='price-all'>
         <h3 class='price-title'>全体の金額</h3>
         <p class='all-details'>
-        今月使った金額は＃＃円です。
-        <br>累計で＃＃円使っています。
+        <%= "今月は＃＃円使っています。" %>
+        <br><%= "あと＃＃円使えます。" %>
+        <br><%= "累計で#{@item_price}円使っています。" %>
        </p>
       </div>
       <div class='price-genre'>
         <h3 class='price-title'>ジャンル別の金額</h3>
-        <p class='genre-details'>
-        今月使った金額は＃＃円です。
-        <br>累計で＃＃円使っています。
-       </p>
+        <% @genres.each do |genre| %>
+      <li class='list'>
+        <%= link_to genre_path(genre.id) do %>
+        <div class='item-info'>
+          <p class='item-name'>
+            <%= "#{genre.theme}▶︎＃＃円" %>
+          </p>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
       </div>
       <div class='price-category'>
         <h3 class='price-title'>カテゴリー別の金額</h3>
-        <p class='category-details'>
-        今月使った金額は＃＃円です。
-        <br>累計で＃＃円使っています。
-       </p>
-      </div>
-   </div>
+        <% @items.each do |item| %>
+      <li class='list'>
+        <div class='item-info'>
+          <p class='item-name'>
+            <%= "#{item.name}▶︎＃＃円" %>
+          </p>
+        </div>
+      </li>
+    <% end %>
+  </div>
+</div>
 
   <%# 金額の可視化部分 %>
       
@@ -65,5 +78,7 @@
 </div>
 <% end %>
   <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
+
+  
   
 <%= render "shared/footer" %>

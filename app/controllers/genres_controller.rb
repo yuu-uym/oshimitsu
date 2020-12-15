@@ -3,6 +3,8 @@ class GenresController < ApplicationController
 
   def index
     @genres = Genre.all
+    @items =  Item.all
+    @item_price =item_price
   end
 
   def new
@@ -55,4 +57,10 @@ class GenresController < ApplicationController
   def genre_params
     params.require(:genre).permit(:theme, :image, :set_amount).merge(user_id: current_user.id)
   end
+
+  def item_price
+    @items = Item.all
+    @total_price = @items.sum(:price)
+  end
+
 end

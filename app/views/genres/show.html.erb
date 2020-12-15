@@ -18,15 +18,17 @@
       <div class='price-genre'>
         <h3 class='price-title'>カテゴリー別の金額</h3>
         <p class='genre-details'>
-        今月使った金額は＃＃円です。
-        <br>累計で＃＃円使っています。
+        グッズの合計金額は＃＃円です。
+        <br>チケットの合計金額は＃＃円です。
+        <br>イベントの合計金額は＃＃円です。
        </p>
       </div>
       <div class='price-category'>
-        <h3 class='price-title'>重要度別の金額</h3>
+        <h3 class='price-title'>ステータス別の金額</h3>
         <p class='category-details'>
-        今月使った金額は＃＃円です。
-        <br>累計で＃＃円使っています。
+        購入済みアイテムの合計金額は＃＃円です。
+        <br>絶対欲しいアイテムの合計金額は＃＃円です。
+        <br>気になるアイテムの合計金額は＃＃円です。
        </p>
       </div>
    </div>
@@ -37,7 +39,7 @@
 <%= link_to 'アイテム追加', new_genre_item_path(@genre.id) %>
     <table class='table-lists'>
       <tr class='item-list'>
-      <th><%="カテゴリー名" %></th><th><%="商品名" %></th><th><%="金額" %></th><th><%="個数" %></th><th><%="発売日" %></th><th><%="購入日" %><th><%="ステータス" %></th><th><%="編集" %></th><th><%="削除" %></th>
+      <th><%="カテゴリー名" %></th><th><%="商品名" %></th><th><%="金額" %></th><th><%="個数" %><th><%="合計金額" %></th></th><th><%="発売日" %></th><th><%="購入日" %><th><%="ステータス" %></th><th><%="編集" %></th><th><%="削除" %></th>
       </tr>
 <div class='item-contents'>
      <% @items.each do |item| %>
@@ -46,6 +48,7 @@
            <td><%= item.name %></td>
            <td><%= item.price %>円</td>
            <td><%= item.quantity_id %>個</td>
+           <td><%= item.sum_of_price %>円</td>
            <td><%= item.release_date %></td>
            <td><%= item.purchase_date %></td>
            <td><%= item.status.name %></td>

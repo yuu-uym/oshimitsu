@@ -8,4 +8,12 @@ class Item < ApplicationRecord
   
   validates :genre_id, numericality: { other_than: 1 } 
   validates :status_id, numericality: { other_than: 1 } 
+
+  def sum_of_price
+    price * quantity_id
+  end
+
+  def total_price
+    item_price = price * quantity_id
+  end
 end
