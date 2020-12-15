@@ -20,6 +20,7 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
+    @items = @genre.items.includes(:genre)
   end
 
   def edit
@@ -44,6 +45,11 @@ class GenresController < ApplicationController
     else
       edirect_to action: :index
     end
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:name, :category_id, :price, :quantity_id, :status_id, :release_date, :purchase_date).merge(user_id: current_user.id, genre_id: params[:genre_id])
   end
 
   def genre_params
