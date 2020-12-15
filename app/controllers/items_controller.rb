@@ -17,6 +17,23 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @genre = Genre.find(params[:genre_id])
+    @item = @genre.items.find(params[:id])
+    redirect_to action: :index if @genre.user_id != current_user.id 
+  end
+
+  def update
+    @genre = Genre.find(params[:genre_id])
+    @item = @genre.items.find(params[:id])
+    if @item.update(item_params)
+      redirect_to genre_path(@genre)
+    else
+      render :edit
+    end
+  end
+
+
   def destroy
     @genre = Genre.find(params[:genre_id])
     @item = @genre.items.find(params[:id])
