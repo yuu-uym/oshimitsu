@@ -50,7 +50,7 @@
            <td><%= item.purchase_date %></td>
            <td><%= item.status.name %></td>
            <td><%= link_to '編集', edit_genre_item_path(item.id), class: "item-red-btn" %></td>
-           <td><%= link_to '削除', genre_item_path(item.id), method: :delete, class:'item-destroy' %></td>
+           <td><%= link_to '削除', genre_item_path(@genre,item), method: :delete, class:'item-destroy' %></td>
      </tr>
   <% end %>
    </table>
