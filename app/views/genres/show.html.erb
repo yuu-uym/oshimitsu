@@ -12,7 +12,7 @@
         <h3 class='price-title'>全体の金額</h3>
         <p class='all-details'>
         今月使った金額は＃＃円です。
-        <br>累計で＃＃円使っています。
+        <br><%= "累計で#{ Item.all.sum(:price) }円使っています"%>
        </p>
       </div>
       <div class='price-genre'>
@@ -35,23 +35,25 @@
   <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
 <h2 class='title'>アイテム一覧</h2>
 <%= link_to 'アイテム追加', new_genre_item_path(@genre.id) %>
-      <ul class='item-list'>
-      <li><%="カテゴリー名" %><%="商品名" %><%="個数" %><%="金額" %><%="発売日" %><%="購入日" %></li>
-      </ul>
+    <table class='table-lists'>
+      <tr class='item-list'>
+      <th><%="カテゴリー名" %></th><th><%="商品名" %></th><th><%="金額" %></th><th><%="個数" %></th><th><%="発売日" %></th><th><%="購入日" %><th><%="ステータス" %></th><th><%="編集" %></th><th><%="削除" %></th>
+      </tr>
 <div class='item-contents'>
      <% @items.each do |item| %>
-      <ul class='item-list'>
-        <li>
-          <%= item.category.name %>
-          <%= item.name %>
-          <%= item.price %>円
-          <%= item.quantity_id %>個
-          <%= item.release_date %>
-          <%= item.purchase_date %>
-          <%= item.status.name %>
-      </li>
-     </ul>
+      <tr class='item-list'>
+           <td><%= item.category.name %></td>
+           <td><%= item.name %></td>
+           <td><%= item.price %>円</td>
+           <td><%= item.quantity_id %>個</td>
+           <td><%= item.release_date %></td>
+           <td><%= item.purchase_date %></td>
+           <td><%= item.status.name %></td>
+           <td><%= link_to '編集', edit_genre_item_path(item.id), class: "item-red-btn" %></td>
+           <td><%= link_to '削除', genre_item_path(item.id), method: :delete, class:'item-destroy' %></td>
+     </tr>
   <% end %>
+   </table>
   <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
       
 <%= render "shared/footer" %>

@@ -4,3 +4,25 @@
 .item-list{
   list-style: none;
 }
+
+table th {
+  padding: 10px;
+  background-color:#f7e5f2;
+}
+
+table td {
+  padding: 3px 10px;
+}
+
+table {
+  border-collapse: collapse;
+  border: solid 2px pink;
+  width: 100%
+}
+table th, table td {
+  border: solid 1px pink;
+}
+
+.table-lists{
+  margin: 15px 0;
+}
