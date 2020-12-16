@@ -1,7 +1,10 @@
  <%= render "shared/header" %>
+
+<div class='main'>
+
   <%# 金額の可視化部分 %>
   <div class ="page-title">
-  <h1><br><%= "#{@genre.theme}のお部屋" %></h1>
+  <h1 class="t"><br><%= "#{@genre.theme}のお部屋" %></h1>
    <div class="list">
         <%= link_to '編集', edit_genre_path, class: "item-red-btn" %>
         <%= link_to '削除', genre_path, method: :delete, class:'item-destroy' %>
@@ -9,7 +12,8 @@
   <br><%= image_tag @genre.image, class: "item-img"  %>
     <div class='price-contents'>
       <div class='price-all'>
-        <h3 class='price-title'>全体の金額</h3>
+        <h3 class='t'>全体の金額</h3>
+        <br>
         <p class='all-details'>
         <%=Time.now.month%>月使った金額は<%= purchase_price_month %>円です。
         <br>あと<%= @genre.set_amount - purchase_price_month %>円使えます
@@ -25,7 +29,8 @@
        <%# </p> %>
       <%# </div> %>
       <div class='price-status'>
-        <h3 class='price-title'>ステータス別の金額</h3>
+        <h3 class='t'>ステータス別の金額</h3>
+        <br>
         <p class='category-details'>
         購入済みアイテムの合計金額は<%= purchase_price %>円です。
         <br>絶対欲しいアイテムの合計金額は<%= must_price %>円です。
@@ -36,8 +41,8 @@
   <%# 金額の可視化部分 %>
 
   <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
-<h2 class='title'>アイテム一覧</h2>
-<%= link_to 'アイテム追加', new_genre_item_path(@genre.id)%>
+<h2 class='t'>アイテム一覧</h2>
+<div class="list"><%= link_to '追加', new_genre_item_path(@genre.id)%></div>
     <table class='table-lists'>
       <tr class='item-list'>
       <th><%="カテゴリー名" %></th><th><%="商品名" %></th><th><%="金額" %></th><th><%="個数" %><th><%="合計金額" %></th></th><th><%="発売日" %></th><th><%="購入日" %><th><%="ステータス" %></th><th><%="編集" %></th><th><%="削除" %></th>
@@ -59,5 +64,7 @@
   <% end %>
    </table>
   <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
+
+  </div>
       
 <%= render "shared/footer" %>

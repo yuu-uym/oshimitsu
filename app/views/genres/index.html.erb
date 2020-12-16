@@ -6,7 +6,7 @@
   <div class='title-contents'>
    <br>
    <br>
-    <h2 class='service-title'>アプリのテーマ</h2>
+    <h2 class='t'>＜Title＞</h2>
     <p class='service-explanation'>
     アプリの説明が入ります
     <br>アプリの説明が入ります
@@ -18,7 +18,8 @@
   <%# 金額の可視化部分 %>
     <div class='price-contents'>
       <div class='price-all'>
-        <h3 class='price-title'>全体の金額</h3>
+        <h3 class='t'>全体の金額</h3>
+        <br>
         <p class='all-details'>
         <%= "#{Time.now.month}月は#{ Item.purchase_price_month }円使っています。" %>
         <br>あと<%= Genre.all.sum(:set_amount) - Item.purchase_price_month %>円使えます！
@@ -40,11 +41,12 @@
     <%# <% end %> 
       <%# </div> %>
     <div class='price-status'>
-        <h3 class='price-title'>ステータス別の金額</h3>
-        <p class='category-details'>
-        購入済みアイテムの合計金額は<%= Item.all_purchase_price %>円です。
-        <br>絶対欲しいアイテムの合計金額は<%= Item.must_price %>円です。
-        <br>気になるアイテムの合計金額は<%= Item.concern_price %>円です。
+        <h3 class='t'>ステータス別の金額</h3>
+        <br>
+        <p class='status-details'>
+        購入済みアイテムの合計は<%= Item.all_purchase_price %>円です。
+        <br>絶対欲しいアイテムの合計は<%= Item.must_price %>円です。
+        <br>気になるアイテムの合計は<%= Item.concern_price %>円です。
        </p>
       </div>
   </div>
@@ -53,7 +55,7 @@
   <%# 金額の可視化部分 %>
       
   <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
-<h2 class='title'>ジャンル一覧</h2>
+<h2 class='t'>ジャンル一覧</h2>
 <div class='genre-contents'>
      <% @genres.each do |genre| %>
       <li class='list'>
