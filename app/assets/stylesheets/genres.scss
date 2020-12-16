@@ -4,15 +4,46 @@
 
 .main{
   height: calc(100vh- 50px - 100px);
+  padding: 50px 0 0 0;
 }
 .title-contents{
-  margin: 0 20px;
+  background-color:  #fcf1f9;
+  // background-image: image-url('haikei.jpeg');
+  width: 100vw;
+  height: 40vh;
+}
+
+.service-title{
+  text-align: center;
+}
+
+.service-explanation{
+  text-align: center;
 }
 .price-contents{
+  text-align: center;
   display: flex;
   justify-content: space-around;
-  padding: 15px;
-  background-color: white;
+  margin: 0 0 30px 0;
+  padding: 20px;
+}
+
+.price-all {
+  padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    border-radius: 50px;
+    background-color:#fcf1f9;
+    width: 38vw;
+}
+
+.price-status{
+  padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    background-color:  #fcf1f9;
+    border-radius: 50px;
+    width: 38vw;
 }
 
 .title{
@@ -24,6 +55,7 @@
   display: flex;
   justify-content: space-around;
   list-style: none;
+  margin: 30px 0 30px 0;
 }
 .genre-lists{
   width: 100vw;
@@ -41,6 +73,11 @@
   text-align: center;
 }
 
+.t{
+  font-size: 25px;
+  text-align: center;
+}
+
 .genre-link a{
   text-decoration: none;
 }
@@ -48,4 +85,8 @@
 .list a{
   text-decoration: none;
   color: #333;
+}
+
+.list{
+  list-style: none;
 }

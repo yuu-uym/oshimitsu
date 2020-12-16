@@ -9,9 +9,10 @@ class ItemsController < ApplicationController
   end
   
   def create
+    @genre = Genre.find(params[:genre_id])
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to genre_path(@genre)
     else
       render :new
     end
@@ -45,6 +46,9 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:name, :category_id, :price, :quantity_id, :status_id, :release_date, :purchase_date).merge(user_id: current_user.id, genre_id: params[:genre_id])
+  end
+
+  def total_price
   end
 
 end
