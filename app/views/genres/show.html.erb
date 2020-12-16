@@ -11,8 +11,8 @@
       <div class='price-all'>
         <h3 class='price-title'>全体の金額</h3>
         <p class='all-details'>
-        <%=Time.now.month%>月使った金額は＃＃円です。
-        <br>あと＃＃円使えます！
+        <%=Time.now.month%>月使った金額は<%= purchase_price_month %>円です。
+        <br>あと<%= @genre.set_amount - purchase_price_month%>円使えます
         <br>累計で使った金額は<%= purchase_price %>円です！
        </p>
       </div>

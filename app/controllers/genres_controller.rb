@@ -68,4 +68,16 @@ class GenresController < ApplicationController
         end
         array.map {|key, val| key * val }.sum
     end
+
+    helper_method :purchase_price_month
+    def purchase_price_month
+        array = {}
+        @genre = Genre.find(params[:id])
+        @item = @genre.items.includes(:genre)
+        @purchase = @item.where(status_id: '2',purchase_date: Time.now.month)
+        @purchase.each do |item|
+        array[item.price ] = item.quantity_id
+        end
+        array.map {|key, val| key * val }.sum
+    end
   end
