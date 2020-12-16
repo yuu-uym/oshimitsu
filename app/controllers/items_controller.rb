@@ -9,9 +9,10 @@ class ItemsController < ApplicationController
   end
   
   def create
+    @genre = Genre.find(params[:genre_id])
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to genre_path(@genre)
     else
       render :new
     end
