@@ -13,16 +13,8 @@ class Item < ApplicationRecord
     price * quantity_id
   end
 
-  def total_price
-    array = {}
-    Item.all.each do |item|
-      array[item.price ] = item.quantity_id
-    end
-      array.map {|key, val| key * val }.sum
-  end
-
   class << self
-    def purchase_price
+    def all_purchase_price
         array = {}
         @item =Item.all
         @purchase = @item.where(status_id: '2')
@@ -32,5 +24,5 @@ class Item < ApplicationRecord
         array.map {|key, val| key * val }.sum
     end
   end
-  
+
 end

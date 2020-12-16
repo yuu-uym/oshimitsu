@@ -22,7 +22,7 @@
         <p class='all-details'>
         <%= "今月は＃＃円使っています。" %>
         <br><%= "あと＃＃円使えます。" %>
-        <br><%= "累計で#{@item_price}円使っています。" %>
+        <br>累計で使った金額は<%= Item.all_purchase_price %>円です
        </p>
       </div>
       <div class='price-genre'>

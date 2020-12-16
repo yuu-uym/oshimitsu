@@ -4,7 +4,6 @@ class GenresController < ApplicationController
   def index
     @genres = Genre.all
     @items =  Item.all
-    @item_price =item_price
   end
 
   def new
@@ -58,18 +57,15 @@ class GenresController < ApplicationController
     params.require(:genre).permit(:theme, :image, :set_amount).merge(user_id: current_user.id)
   end
 
-  def item_price
-    @items = Item.all
-    @total_price = @items.sum(:price)
-  end
-
-  def purchase_price
-    array = {}
-    @purchase = @item.where(status_id: '2')
-    @purchase.each do |item|
-      array[item.price ] = item.quantity_id
+  helper_method :purchase_price
+    def purchase_price
+        array = {}
+        @genre = Genre.find(params[:id])
+        @item = @genre.items.includes(:genre)
+        @purchase = @item.where(status_id: '2')
+        @purchase.each do |item|
+        array[item.price ] = item.quantity_id
+        end
+        array.map {|key, val| key * val }.sum
     end
-      array.map {|key, val| key * val }.sum
   end
-
-end
