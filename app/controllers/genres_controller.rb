@@ -82,4 +82,28 @@ class GenresController < ApplicationController
         end
         array.map {|key, val| key * val }.sum
     end
+
+    helper_method :must_price
+    def must_price
+        array = {}
+        @genre = Genre.find(params[:id])
+        @item = @genre.items.includes(:genre)
+        @purchase = @item.where(status_id: '3')
+        @purchase.each do |item|
+        array[item.price ] = item.quantity_id
+        end
+        array.map {|key, val| key * val }.sum
+    end
+
+    helper_method :concern_price
+    def concern_price
+        array = {}
+        @genre = Genre.find(params[:id])
+        @item = @genre.items.includes(:genre)
+        @purchase = @item.where(status_id: '4')
+        @purchase.each do |item|
+        array[item.price ] = item.quantity_id
+        end
+        array.map {|key, val| key * val }.sum
+    end
   end
