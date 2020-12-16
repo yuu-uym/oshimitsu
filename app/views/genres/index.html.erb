@@ -14,8 +14,10 @@
     </p>
   </div>
   <%# /画面上部の「アプリの説明」帯部分  %>
-<% if user_signed_in? %>
+
   <%# 金額の可視化部分 %>
+  <%# ログインしていたらこっち %>
+  <% if user_signed_in? %>
     <div class='price-contents'>
       <div class='price-all'>
         <h3 class='t'>全体の金額</h3>
@@ -51,11 +53,36 @@
       </div>
   </div>
 </div>
-
+<% else %>
+<br>
+<h1 class="t">※サンプル画面※</h1>
+<div class='price-contents'>
+      <div class='price-all'>
+        <h3 class='t'>全体の金額</h3>
+        <br>
+        <p class='all-details'>
+        ここに当月利用した金額が表示されます
+        <br>ここに当月利用できる残額が表示されます
+        <br>ここに累計で利用した金額が表示されます
+       </p>
+      </div>
+    <div class='price-status'>
+        <h3 class='t'>ステータス別の金額</h3>
+        <br>
+        <p class='status-details'>
+        購入済みアイテムの合計金額が表示されます
+        <br>絶対欲しいアイテムの合計金額が表示されます
+        <br>気になるアイテムの合計金額が表示されます
+       </p>
+      </div>
+  </div>
+</div>
+<% end %>
   <%# 金額の可視化部分 %>
       
-  <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
+  <%# //全てのジャンルを展開 %>
 <h2 class='t'>ジャンル一覧</h2>
+ <% if user_signed_in? %>
 <div class='genre-contents'>
      <% @genres.each do |genre| %>
       <li class='list'>
@@ -75,9 +102,26 @@
       </li>
       <% end %>
 </div>
-<% end %>
-  <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開 %>
+    <%# 全てのジャンルを展開 %>
+      <%# //ログインしていない場合はこちら %>
+<% else %>
+<div class='genre-contents'>
+      <li class='list'>
+        <div class='item-img-content'>
+          <%= image_tag "haikei.jpeg", class: "item-img" %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= "「ジャンル名」のお部屋" %>
+          </h3>
+          <div class='item-price'>
+            <span>月額上限金額</span>
+          </div>
+        </div>
+      </li>
+</div>
+ <% end %>
+  <%# //ログインしていない場合はこちら %>
 
-  
-  
+
 <%= render "shared/footer" %>
