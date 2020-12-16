@@ -4,6 +4,7 @@ class GenresController < ApplicationController
   def index
     @genres = Genre.all
     @items =  Item.all
+    
   end
 
   def new
@@ -106,4 +107,67 @@ class GenresController < ApplicationController
         end
         array.map {|key, val| key * val }.sum
     end
+
+    helper_method :all_purchase_price
+    def all_purchase_price
+      array = {}
+      @user = current_user.id
+      @items =Item.all
+      @purchase = @items.where(status_id: '2', user_id: @user)
+      @purchase.each do |item|
+      array[item.price ] = item.quantity_id
+      end
+      array.map {|key, val| key * val }.sum
+  end
+
+  helper_method :all_concern_price
+    def all_concern_price
+      array = {}
+      @user = current_user.id
+      @items =Item.all
+      @purchase = @items.where(status_id: '4', user_id: @user)
+      @purchase.each do |item|
+      array[item.price ] = item.quantity_id
+      end
+      array.map {|key, val| key * val }.sum
+  end
+
+  helper_method :all_must_price
+    def all_must_price
+      array = {}
+      @user = current_user.id
+      @items =Item.all
+      @purchase = @items.where(status_id: '3', user_id: @user)
+      @purchase.each do |item|
+      array[item.price ] = item.quantity_id
+      end
+      array.map {|key, val| key * val }.sum
+  end
+
+  helper_method :purchase_price_month
+    def purchase_price_month
+        array = {}
+        @item = Item.all
+        @user = current_user.id
+        @purchase = @item.where(status_id: '2', user_id: @user)
+        @purchase_month = @purchase.where('purchase_date LIKE(?)', "%#{Time.now.month}%")
+        @purchase_year = @purchase_month.where('purchase_date LIKE(?)', "%#{Time.now.year}%")
+        @purchase_year.each do |item|
+        array[item.price ] = item.quantity_id
+        end
+        array.map {|key, val| key * val }.sum
+    end
+
+    helper_method :all_set_amount
+    def all_set_amount
+        array = []
+        @genre = Genre.all
+        @user = current_user.id
+        @purchase = @genre.where(user_id: @user)
+        @purchase.each do |genre|
+        array << genre.set_amount
+        end
+        array.sum
+    end
+
   end

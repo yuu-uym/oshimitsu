@@ -13,19 +13,6 @@ class Item < ApplicationRecord
     price * quantity_id
   end
 
-  class << self
-    def all_purchase_price
-        array = {}
-        @item =Item.all
-        @purchase = @item.where(status_id: '2')
-        @purchase.each do |item|
-        array[item.price ] = item.quantity_id
-        end
-        array.map {|key, val| key * val }.sum
-    end
-  end
-
-
    class << self
     def must_price
         array = {}
@@ -64,5 +51,9 @@ class Item < ApplicationRecord
         array.map {|key, val| key * val }.sum
       end
    end
+
+   def user
+    return User.find_by(id: self.user_id)
+  end
 
   end
