@@ -11,6 +11,13 @@ class Item < ApplicationRecord
   validates :name, presence: true 
   validates :price, presence: true 
   validates :quantity_id, presence: true 
+  validates :purchase_date, presence: true, if: :status?
+
+  def status?
+    status_id == 2
+  end
+
+
 
   def sum_of_price
     price * quantity_id
