@@ -6,8 +6,11 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :status
   
-  validates :genre_id, numericality: { other_than: 1 } 
   validates :status_id, numericality: { other_than: 1 } 
+  validates :category_id, numericality: { other_than: 1 } 
+  validates :name, presence: true 
+  validates :price, presence: true 
+  validates :quantity_id, presence: true 
 
   def sum_of_price
     price * quantity_id
