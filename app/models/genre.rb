@@ -4,4 +4,6 @@ class Genre < ApplicationRecord
   has_many :items, dependent: :destroy
 
   validates :theme, presence: true 
+
+
 end
