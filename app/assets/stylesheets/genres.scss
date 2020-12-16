@@ -12,7 +12,24 @@
   display: flex;
   justify-content: space-around;
   padding: 15px;
-  background-color: white;
+}
+
+.price-all {
+  padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    border-radius: 50px;
+    background-color: #f7e5f2;
+    width: 38vw;
+}
+
+.price-status{
+  padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    background-color:  #f7e5f2;
+    border-radius: 50px;
+    width: 38vw;
 }
 
 .title{
