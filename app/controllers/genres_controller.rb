@@ -1,5 +1,5 @@
 class GenresController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index ]
 
   def index
     @genres = Genre.all
@@ -23,6 +23,7 @@ class GenresController < ApplicationController
   def show
     @genre = Genre.find(params[:id])
     @items = @genre.items.includes(:genre)
+    redirect_to action: :index if @genre.user_id != current_user.id 
   end
 
   def edit
@@ -45,7 +46,7 @@ class GenresController < ApplicationController
       @genre.destroy
       redirect_to root_path
     else
-      edirect_to action: :index
+      redirect_to action: :index
     end
   end
 
@@ -76,6 +77,20 @@ class GenresController < ApplicationController
         @genre = Genre.find(params[:id])
         @item = @genre.items.includes(:genre)
         @purchase = @item.where(status_id: '2')
+        @purchase_month = @purchase.where('purchase_date LIKE(?)', "%#{Time.now.month}%")
+        @purchase_year = @purchase_month.where('purchase_date LIKE(?)', "%#{Time.now.year}%")
+        @purchase_year.each do |item|
+        array[item.price ] = item.quantity_id
+        end
+        array.map {|key, val| key * val }.sum
+    end
+
+    helper_method :all_purchase_price_month
+    def all_purchase_price_month
+        array = {}
+        @item = Item.all
+        @user = current_user.id
+        @purchase = @item.where(status_id: '2', user_id: @user)
         @purchase_month = @purchase.where('purchase_date LIKE(?)', "%#{Time.now.month}%")
         @purchase_year = @purchase_month.where('purchase_date LIKE(?)', "%#{Time.now.year}%")
         @purchase_year.each do |item|
@@ -143,20 +158,6 @@ class GenresController < ApplicationController
       end
       array.map {|key, val| key * val }.sum
   end
-
-  helper_method :purchase_price_month
-    def purchase_price_month
-        array = {}
-        @item = Item.all
-        @user = current_user.id
-        @purchase = @item.where(status_id: '2', user_id: @user)
-        @purchase_month = @purchase.where('purchase_date LIKE(?)', "%#{Time.now.month}%")
-        @purchase_year = @purchase_month.where('purchase_date LIKE(?)', "%#{Time.now.year}%")
-        @purchase_year.each do |item|
-        array[item.price ] = item.quantity_id
-        end
-        array.map {|key, val| key * val }.sum
-    end
 
     helper_method :all_set_amount
     def all_set_amount

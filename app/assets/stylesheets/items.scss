@@ -4,10 +4,14 @@
 .item-list{
   list-style: none;
 }
+.item-list a{
+  text-decoration: none;
+  color: #333;
+}
 
 table th {
   padding: 10px;
-  background-color:#f7e5f2;
+  background-color:#ffe5e5;
 }
 
 table td {

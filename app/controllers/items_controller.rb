@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @item = Item.all
@@ -12,7 +13,7 @@ class ItemsController < ApplicationController
     @genre = Genre.find(params[:genre_id])
     @item = Item.new(item_params)
     if @item.save
-      redirect_to genre_path(@genre)
+       redirect_to genre_path(@genre)
     else
       render :new
     end
@@ -21,7 +22,7 @@ class ItemsController < ApplicationController
   def edit
     @genre = Genre.find(params[:genre_id])
     @item = @genre.items.find(params[:id])
-    redirect_to action: :index if @genre.user_id != current_user.id 
+    redirect_to root_path if @item.user_id != current_user.id
   end
 
   def update
@@ -38,8 +39,11 @@ class ItemsController < ApplicationController
   def destroy
     @genre = Genre.find(params[:genre_id])
     @item = @genre.items.find(params[:id])
-    if @item.destroy
-       redirect_to genre_path(@genre)
+    if @item.user_id == current_user.id
+       @item.destroy
+      redirect_to root_path
+    else
+      redirect_to action: :index
     end
   end
 

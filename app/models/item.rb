@@ -6,8 +6,18 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :status
   
-  validates :genre_id, numericality: { other_than: 1 } 
   validates :status_id, numericality: { other_than: 1 } 
+  validates :category_id, numericality: { other_than: 1 } 
+  validates :name, presence: true 
+  validates :price, presence: true 
+  validates :quantity_id, presence: true 
+  validates :purchase_date, presence: true, if: :status?
+
+  def status?
+    status_id == 2
+  end
+
+
 
   def sum_of_price
     price * quantity_id
@@ -51,9 +61,5 @@ class Item < ApplicationRecord
         array.map {|key, val| key * val }.sum
       end
    end
-
-   def user
-    return User.find_by(id: self.user_id)
-  end
 
   end
