@@ -63,4 +63,13 @@ class GenresController < ApplicationController
     @total_price = @items.sum(:price)
   end
 
+  def purchase_price
+    array = {}
+    @purchase = @item.where(status_id: '2')
+    @purchase.each do |item|
+      array[item.price ] = item.quantity_id
+    end
+      array.map {|key, val| key * val }.sum
+  end
+
 end
