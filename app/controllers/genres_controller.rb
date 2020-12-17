@@ -6,7 +6,6 @@ class GenresController < ApplicationController
   def index
     @genres = Genre.all
     @items =  Item.all
-    
   end
 
   def new
@@ -26,6 +25,7 @@ class GenresController < ApplicationController
     @genre = Genre.find(params[:id])
     @items = @genre.items.includes(:genre)
     redirect_to action: :index if @genre.user_id != current_user.id 
+    set_item_column
   end
 
   def edit
@@ -67,6 +67,10 @@ class GenresController < ApplicationController
 
   def search_product
     @p = Item.ransack(params[:q])
+  end
+
+  def set_item_column
+    @item_name = Item.select("name").distinct  
   end
 
   helper_method :purchase_price
