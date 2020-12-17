@@ -1,0 +1,34 @@
+ <%= render "shared/header" %>
+
+ <div class="main">
+<h1 class="t">
+  絞り込み結果
+</h1>
+<%# 検索結果の個数で条件分岐 %>
+<% if @results.length !=0 %>
+    <table class='table-lists'>
+    <tr class='item-list'>
+      <th><%="カテゴリー名" %></th><th><%="商品名" %></th><th><%="金額" %></th><th><%="個数" %><th><%="合計金額" %></th></th><th><%="発売日" %></th><th><%="購入日" %><th><%="ステータス" %></th></th>
+      </tr>
+  <% @results.each do |result| %>
+      <tr class='item-list'>
+           <td><%= result.category.name %></td>
+           <td><%= result.name %></td>
+           <td><%= result.price %>円</td>
+           <td><%= result.quantity_id %>個</td>
+           <td><%= result.sum_of_price%>円</td>
+           <td><%= result.release_date %></td>
+           <td><%= result.purchase_date %></td>
+           <td><%= result.status.name %></td>
+     </tr>
+  <% end %>
+   </table>
+<% else %>
+  <p class="none">該当するアイテムはありません</p>
+<% end %>
+<br>
+<div class="search-back">
+<%= link_to "#{@genre.theme}のお部屋に戻る", genre_path(@genre.id) %>
+</div>
+
+<%= render "shared/footer" %>

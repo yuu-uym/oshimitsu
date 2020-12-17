@@ -53,7 +53,7 @@ class GenresController < ApplicationController
   end
 
   def search
-    @results = @p.result.includes(:category.name)  
+    @results = @p.result
   end
 
   private
@@ -72,6 +72,7 @@ class GenresController < ApplicationController
   def set_item_column
     @item_name = Item.select("name").distinct  
   end
+
 
   helper_method :purchase_price
     def purchase_price

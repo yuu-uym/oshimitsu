@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
+  before_action :search_product, only: [:index, :show, :search]
 
   def index
     @item = Item.all
@@ -46,16 +47,22 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-    
+  def search
+    @genre = Genre.find(params[:genre_id])
+    @item = @genre.items.all
+    @results = @p.result
   end
+
   private
   def item_params
     params.require(:item).permit(:name, :category_id, :price, :quantity_id, :status_id, :release_date, :purchase_date).merge(user_id: current_user.id, genre_id: params[:genre_id])
   end
 
-  def total_price
+  def search_product
+    @p = Item.ransack(params[:q])
   end
 
+  def total_price
+  end
 
 end
