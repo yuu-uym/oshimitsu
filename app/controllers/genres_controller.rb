@@ -1,10 +1,11 @@
 class GenresController < ApplicationController
   before_action :authenticate_user!, except: [:index ]
+  before_action :search_product, only: [:show]
+
 
   def index
     @genres = Genre.all
     @items =  Item.all
-    
   end
 
   def new
@@ -22,7 +23,7 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
-    @items = @genre.items.includes(:genre)
+    @items = @genre.items.includes(:genre).order("created_at DESC")
     redirect_to action: :index if @genre.user_id != current_user.id 
   end
 
@@ -57,6 +58,12 @@ class GenresController < ApplicationController
 
   def genre_params
     params.require(:genre).permit(:theme, :image, :set_amount).merge(user_id: current_user.id)
+  end
+
+  def search_product
+    @genre = Genre.find(params[:id])
+    @item = @genre.items.includes(:genre)
+    @p =  @item.ransack(params[:q])
   end
 
   helper_method :purchase_price
