@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'items/search'
   root to: 'genres#index'
   resources :genres do
     resources :items
