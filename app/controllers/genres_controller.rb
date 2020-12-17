@@ -1,6 +1,6 @@
 class GenresController < ApplicationController
   before_action :authenticate_user!, except: [:index ]
-  before_action :search_product, only: [:index, :show, :search]
+  before_action :search_product, only: [:show]
 
 
   def index
@@ -25,7 +25,6 @@ class GenresController < ApplicationController
     @genre = Genre.find(params[:id])
     @items = @genre.items.includes(:genre)
     redirect_to action: :index if @genre.user_id != current_user.id 
-    set_item_column
   end
 
   def edit
@@ -52,10 +51,6 @@ class GenresController < ApplicationController
     end
   end
 
-  def search
-    @results = @p.result
-  end
-
   private
   def item_params
     params.require(:item).permit(:name, :category_id, :price, :quantity_id, :status_id, :release_date, :purchase_date).merge(user_id: current_user.id, genre_id: params[:genre_id])
@@ -66,13 +61,10 @@ class GenresController < ApplicationController
   end
 
   def search_product
-    @p = Item.ransack(params[:q])
+    @genre = Genre.find(params[:id])
+    @item = @genre.items.includes(:genre)
+    @p =  @item.ransack(params[:q])
   end
-
-  def set_item_column
-    @item_name = Item.select("name").distinct  
-  end
-
 
   helper_method :purchase_price
     def purchase_price

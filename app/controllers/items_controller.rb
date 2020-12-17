@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :search_product, only: [:index, :show, :search]
+  before_action :search_product, only: [:search]
 
   def index
+    @genres = Genre.all
     @item = Item.all
   end
 
@@ -59,7 +60,8 @@ class ItemsController < ApplicationController
   end
 
   def search_product
-    @p = Item.ransack(params[:q])
+    @genres = Genre.find(params[:genre_id])
+    @p =  @genres.items.ransack(params[:q])
   end
 
   def total_price
