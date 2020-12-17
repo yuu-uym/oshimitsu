@@ -10,8 +10,8 @@
     <table class='table-lists'>
     <tr class='item-list'>
       <th><%="カテゴリー名" %></th><th><%="商品名" %></th>
-      <th><%="金額" %></th><th><%="個数" %><th><%="合計金額" %><
-        /th></th><th><%="発売日" %></th><th><%="購入日" %><th><%="ステータス" %></th></th>
+      <th><%="金額" %></th><th><%="個数" %><th><%="合計金額" %></th>
+        <th><%="発売日" %></th><th><%="購入日" %><th><%="ステータス" %></th></th>
       </tr>
     <% @results.each do |result| %>
       <tr class='item-list'>
@@ -34,8 +34,6 @@
 <% end %>
 <%# 検索結果がない場合はこちら %>
 
-<div class="search-back">
-<%= link_to "#{@genre.theme}のお部屋に戻る", genre_path(@genre.id) %>
-</div>
+<div class="search-back"><%= link_to "#{@genre.theme}のお部屋に戻る", genre_path(@genre.id) %></div>
 
 <%= render "shared/footer" %>
