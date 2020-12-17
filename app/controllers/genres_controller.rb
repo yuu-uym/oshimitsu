@@ -1,5 +1,7 @@
 class GenresController < ApplicationController
   before_action :authenticate_user!, except: [:index ]
+  before_action :search_product, only: [:index, :show, :search]
+
 
   def index
     @genres = Genre.all
@@ -50,6 +52,10 @@ class GenresController < ApplicationController
     end
   end
 
+  def search
+    @results = @p.result.includes(:category.name)  
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :category_id, :price, :quantity_id, :status_id, :release_date, :purchase_date).merge(user_id: current_user.id, genre_id: params[:genre_id])
@@ -57,6 +63,10 @@ class GenresController < ApplicationController
 
   def genre_params
     params.require(:genre).permit(:theme, :image, :set_amount).merge(user_id: current_user.id)
+  end
+
+  def search_product
+    @p = Item.ransack(params[:q])
   end
 
   helper_method :purchase_price

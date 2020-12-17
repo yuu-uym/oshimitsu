@@ -35,7 +35,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
   def destroy
     @genre = Genre.find(params[:genre_id])
     @item = @genre.items.find(params[:id])
@@ -54,5 +53,6 @@ class ItemsController < ApplicationController
 
   def total_price
   end
+
 
 end
