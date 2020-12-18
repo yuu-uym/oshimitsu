@@ -1,10 +1,11 @@
- <%= render "shared/header" %>
+<%= render "shared/header" %>
+
 <div class="genre-input-contents">
   <div class="genre-input-main">
-    <h2 class="genre-input-title">アイテムの修正</h2>
+    <h2 class="genre-input-title">アイテム情報の修正</h2>
     <%= form_with model: @item, url: genre_item_path, local: true do |f| %>
 
-    <%# <%= render 'shared/error_messages', model: f.object  %> 
+    <%= render 'shared/error_messages', model: f.object  %> 
 
     <%# 商品名 %>
     <div class="new-items">
@@ -29,7 +30,7 @@
           <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:status_id  , Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-     <div class="weight-bold-text">
+        <div class="weight-bold-text">
           発売日
         </div>
         <%= f.date_field :release_date %>
@@ -38,18 +39,18 @@
         </div>
         <%= f.date_field :purchase_date %>
         <div class="weight-bold-text">
-            <span>価格</span>
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）5000" %>
-          <span class="price-yen">円</span>
-          <div class="weight-bold-text">
-            <span>個数</span>
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.text_field :quantity_id, class:"price-input", id:"item-price", placeholder:"例）5000" %>
-          <span class="price-yen">個</span>
-     </div>
+          <span>価格</span>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）5000" %>
+        <span class="price-yen">円</span>
+        <div class="weight-bold-text">
+          <span>個数</span>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :quantity_id, class:"price-input", id:"item-price", placeholder:"例）5000" %>
+        <span class="price-yen">個</span>
+      </div>
     </div>
     <%# /アイテム詳細 %>
 
@@ -58,7 +59,8 @@
       <%=link_to 'もどる', genre_path(@genre.id), class:"back-btn" %>
     </div>
 
+    <% end %>
   </div>
-  <% end %>
+</div> 
+
   <%= render "shared/footer" %>
-</div>

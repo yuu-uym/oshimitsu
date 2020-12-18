@@ -1,7 +1,7 @@
 <div class='genre-contents'>
-    <%genres = @genres%>
-    <%@mygenres = current_user.genres%>
-     <% @mygenres.each do |genre| %>
+  <%genres = @genres%>
+  <%@mygenres = current_user.genres%>
+    <% @mygenres.each do |genre| %>
       <li class='list'>
         <%= link_to genre_path(genre.id) do %>
         <div class='item-img-content'>
@@ -17,5 +17,5 @@
         </div>
         <% end %>
       </li>
-      <% end %>
+    <% end %>
 </div>
