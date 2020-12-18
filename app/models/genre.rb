@@ -4,9 +4,10 @@ class Genre < ApplicationRecord
   has_many :items, dependent: :destroy
 
   with_options presence: true do
-    validates :theme, presence: true 
-    validates :image, presence: true 
-    validates :set_amount, presence: true 
+    validates :theme
+    validates :image
+    
+    validates :set_amount, numericality: { only_integer: true}
   end
 
 end

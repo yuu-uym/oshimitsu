@@ -15,7 +15,7 @@ class Item < ApplicationRecord
     end
 
     validates :price, numericality: { only_integer: true}
-    validates :quantity_id, numericality: { only_integer: true, greater_than:0}
+    validates :quantity_id, numericality: { only_integer: true, greater_than:0, less_than: 1_000}
     validates :purchase_date, if: :status?
   end
 
