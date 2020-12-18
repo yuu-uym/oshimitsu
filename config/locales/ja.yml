@@ -1,0 +1,17 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+     genre:
+       theme: ジャンルのテーマ
+       image: アイコン画像
+       set_amount: 月額上限
+     item:
+       name: 商品名
+       set_amount: 月額上限
+       status_id: ステータス
+       category_id: カテゴリー
+       price: 価格
+       quantity_id: 個数
+       purchase_date: 購入日
