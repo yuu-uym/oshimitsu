@@ -6,19 +6,24 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :status
   
-  validates :status_id, numericality: { other_than: 1 } 
-  validates :category_id, numericality: { other_than: 1 } 
-  validates :name, presence: true 
-  validates :price, presence: true 
-  validates :quantity_id, presence: true 
-  validates :purchase_date, presence: true, if: :status?
+  with_options presence: true do
+    validates :name
+
+    with_options numericality: { other_than: 1 } do
+      validates :status_id
+      validates :category_id
+    end
+
+    validates :price, numericality: { only_integer: true}
+    validates :quantity_id, numericality: { only_integer: true, greater_than:0}
+    validates :purchase_date, if: :status?
+  end
 
   def status?
     status_id == 2
   end
 
-
-
+  
   def sum_of_price
     price * quantity_id
   end
