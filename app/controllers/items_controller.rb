@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @genre = Genre.find(params[:genre_id])
     @item = Item.new
   end
   

@@ -37,7 +37,9 @@
     </div>
     <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
   </div>
-    <div class='register-btn'>
-    <%= f.submit "登録" ,class:"register-red-btn" %>
-   </div>
+    <div class="input-btn-contents">
+      <%= f.submit "新規登録", class:"input-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+</div>
 <% end %>
