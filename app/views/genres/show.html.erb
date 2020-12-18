@@ -8,6 +8,7 @@
    <div class="list">
         <%= link_to '編集', edit_genre_path, class: "item-red-btn" %>
         <%= link_to '削除', genre_path, method: :delete, class:'item-destroy' %>
+        <%= link_to '★Twitterでシェアする★', "https://twitter.com/share?url=#{request.url}&text=#{Time.now.month}月 #{@genre.theme} に貢いだ金額は #{purchase_price_month} 円★/&hashtags=推しに貢ぐ", class: 'share_link_twitter', data: { show_count: false }, title: 'Twitter', target: '_blank' %>
   </div>
   <br><%= image_tag @genre.image, class: "item-img"  %>
     <div class='price-contents'>

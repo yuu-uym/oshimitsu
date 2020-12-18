@@ -1,8 +1,9 @@
 <%= render "shared/header" %>
+
 <div class="genre-input-contents">
   <div class="genre-input-main">
     <h2 class="genre-input-title">ジャンルの修正</h2>
-    <%= form_with model: @genre, url: genre_path, local: true do |f| %>
+     <%= form_with model: @genre, url: genre_path, local: true do |f| %>
 
         <%= render 'shared/error_messages', model: f.object %>
 
@@ -12,24 +13,23 @@
         アイコン画像
       </div>
       <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
+        <p>クリックしてファイルをアップロード</p>
         <%= f.file_field :image, id:"item-image" %>
       </div>
     </div>
     <%# /ジャンルアイコン%>
+
     <%# テーマ名 %>
     <div class="new-items">
       <div class="weight-bold-text">
         ジャンルのテーマ
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :theme, class:"items-text", id:"item-name", placeholder:"テーマ（必須 40文字まで)", maxlength:"40" %>
+        <%= f.text_area :theme, class:"items-text", id:"item-name", placeholder:"テーマ（必須 40文字まで)", maxlength:"40" %>
     </div>
     <%# /テーマ名 %>
 
-       <%# 月額上限設定 %>
+    <%# 月額上限設定 %>
     <div class="set-amount">
       <div class="weight-bold-text question-text">
         <span>月額上限<br>(¥300〜9,999,999)</span>
@@ -42,7 +42,6 @@
           <span class="price-yen">¥</span>
           <%= f.text_field :set_amount, class:"price-input", id:"item-price", placeholder:"例）30,000" %>
         </div>
-        </span>
       </div>
     </div>
     <%# /月額上限設定 %>
@@ -51,8 +50,9 @@
       <%= f.submit "登録する", class:"input-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
-
+    
+    <% end %> 
   </div>
-  <% end %>
-  <%= render "shared/footer" %>
 </div>
+
+<%= render "shared/footer" %>

@@ -4,11 +4,10 @@
 
   <%# 画面上部の「アプリの説明」帯部分 %>
   <div class='title-contents'>
-   <br>
-   <br>
+    <br>
     <h2 class='app-t'>＜Title＞</h2>
     <p class='service-explanation'>
-    アプリの説明が入ります
+    <br>アプリの説明が入ります
     <br>アプリの説明が入ります
     <br>アプリの説明が入ります
     </p>
@@ -21,106 +20,67 @@
     <div class='price-contents'>
       <div class='price-all'>
         <h3 class='t'>全体の金額</h3>
-        <br>
         <p class='all-details'>
-        <%= Time.now.month%>月は
-        <%= all_purchase_price_month %>
-        円使っています。
-        <br>
-        あと
-        <%= all_set_amount - all_purchase_price_month %>
-        円使えます！
-        <br>
-        累計で使った金額は
-        <%= all_purchase_price %>
-        円です
+       <br><%= Time.now.month%>月は <%= all_purchase_price_month %> 円使っています。
+        <br>あと <%= all_set_amount - all_purchase_price_month %> 円使えます！
+        <br>累計で使った金額は <%= all_purchase_price %>円 です
        </p>
       </div>
-      <%# <div class='price-genre'> %>
-        <%# <h3 class='price-title'>ジャンル別の金額</h3> %>
-        <%# <% @genres.each do |genre| %> 
-      <%# <li class='list'> %>
-        <%# <%= link_to genre_path(genre.id) do %> 
-        <%# <div class='item-info'> %>
-          <%# <p class='item-name'> %>
-            <%# <%= "#{genre.theme}▶︎＃＃円" %> 
-          <%# </p> %>
-        <%# </div> %>
-        <%# <% end %> 
-      <%# </li> %>
-    <%# <% end %> 
-      <%# </div> %>
-    <div class='price-status'>
+      <div class='price-status'>
         <h3 class='t'>ステータス別の金額</h3>
-        <br>
         <p class='status-details'>
-        購入済みアイテムの合計は
-        <%= all_purchase_price %>
-        円です。
-        <br
-        >絶対欲しいアイテムの合計は
-        <%= all_must_price %>
-        円です。
-        <br>
-        気になるアイテムの合計は
-        <%= all_concern_price %>
-        円です。
-       </p>
+         <br>購入済みアイテムの合計は <%= all_purchase_price %>円 です。
+        <br>絶対欲しいアイテムの合計は <%= all_must_price %>円 です。
+        <br>気になるアイテムの合計は <%= all_concern_price %>円 です。
+        </p>
       </div>
-  </div>
-</div>
-<% else %>
-<br>
-<h1 class="t">※サンプル画面※</h1>
-<div class='price-contents'>
+    </div>
+  <%# ログインしていなければこっち %>
+  <% else %>
+  <h1 class="t">※サンプル画面※</h1>
+    <div class='price-contents'>
       <div class='price-all'>
         <h3 class='t'>全体の金額</h3>
-        <br>
         <p class='all-details'>
-        ここに当月利用した金額が表示されます
+        <br>ここに当月利用した金額が表示されます
         <br>ここに当月利用できる残額が表示されます
         <br>ここに累計で利用した金額が表示されます
-       </p>
+        </p>
       </div>
-    <div class='price-status'>
+      <div class='price-status'>
         <h3 class='t'>ステータス別の金額</h3>
-        <br>
         <p class='status-details'>
-        購入済みアイテムの合計金額が表示されます
+        <br>購入済みアイテムの合計金額が表示されます
         <br>絶対欲しいアイテムの合計金額が表示されます
         <br>気になるアイテムの合計金額が表示されます
        </p>
       </div>
-  </div>
-</div>
-<% end %>
+    </div>
+  <% end %>
   <%# 金額の可視化部分 %>
       
   <%# //全てのジャンルを展開 %>
-<h2 class='t'>ジャンル一覧</h2>
- <% if user_signed_in? %>
-<%= render "shared/genre_contents" %>
-    <%# 全てのジャンルを展開 %>
+  <h2 class='t'>ジャンル一覧</h2>
+  <% if user_signed_in? %>
+    <%= render "shared/genre_contents" %>
+  <%# 全てのジャンルを展開 %>
     
-      <%# //ログインしていない場合はこちら %>
-<% else %>
-<div class='genre-contents'>
+    <%# //ログインしていない場合はこちら %>
+  <% else %>
+    <div class='genre-contents'>
       <li class='list'>
         <div class='item-img-content'>
           <%= image_tag "haikei.jpeg", class: "item-img" %>
         </div>
         <div class='item-info'>
-          <h3 class='item-name'>
-            <%= "「ジャンル名」のお部屋" %>
-          </h3>
+          <h3 class='item-name'><%= "「ジャンル名」のお部屋" %></h3>
           <div class='item-price'>
             <span>月額上限金額</span>
           </div>
         </div>
       </li>
-</div>
- <% end %>
+    </div>
+  <% end %>
   <%# //ログインしていない場合はこちら %>
-
 
 <%= render "shared/footer" %>
