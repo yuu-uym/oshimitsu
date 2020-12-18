@@ -2,7 +2,6 @@ require 'rails_helper'
 describe Genre do
   before do
     @genre = FactoryBot.build(:genre)
-    @genre.image = fixture_file_upload('/files/test.jpeg')
   end
 
   describe 'ジャンルの登録' do
