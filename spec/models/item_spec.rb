@@ -9,7 +9,8 @@ describe Item do
       it 'name,priceが存在し、quantity_idが１以上、category_id, status_idが２以上であれば登録できる' do
         expect(@item).to be_valid
       end
-      it 'name,priceが存在し、quantity_idが１以上、category_idが２以上、status_idが２のときにpurchase_dateがあれば登録できる' do
+      it 'name,priceが存在し、quantity_idが１以上、category_idが２以上、status_idが2のときにpurchase_dateがあれば登録できる' do
+        @item.status_id = 2
         expect(@item).to be_valid
       end
     end
@@ -40,6 +41,34 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("価格は数値で入力してください")
       end
+      it 'quantity_idが空だと登録できない' do
+        @item.quantity_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("個数を入力してください")
+      end
+      it 'quantity_id が0だと登録できない' do
+        @item.quantity_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("個数は0より大きい値にしてください")
+      end
+      it 'quantity_idが1000以上だと登録できない' do
+        @item.quantity_id = 1000
+        @item.valid?
+        expect(@item.errors.full_messages).to include("個数は1000より小さい値にしてください")
+      end
+      it 'quantity_idが全角だと登録できない' do
+        @item.quantity_id = '５００'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("個数は数値で入力してください")
+      end
+      it 'status_idが2のときにpurchase_dateがなければ登録できない' do
+        @item.status_id = 2
+        @item.purchase_date = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("購入日を入力してください")
+      end
     end
   end
 end
+
+
