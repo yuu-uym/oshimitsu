@@ -1,7 +1,8 @@
- <%= render "shared/header" %>
-<div class="genre-input-contents">
-  <div class="genre-input-main">
-    <h2 class="genre-input-title">アイテムの情報を入力</h2>
+<%= render "shared/header" %>
+
+<div class="input-contents">
+  <div class="input-main">
+    <h2 class="input-title">アイテムの情報を入力</h2>
     <%= form_with model: @item, url: genre_items_path, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object %> 
@@ -12,7 +13,7 @@
         商品名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)" %>
     </div>
     <%# /商品名 %>
 
@@ -22,43 +23,44 @@
         <div class="weight-bold-text">
           カテゴリー
           <span class="indispensable">必須</span>
+          <%= f.collection_select(:category_id  , Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
         </div>
-        <%= f.collection_select(:category_id  , Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
         <div class="weight-bold-text">
           ステータス
           <span class="indispensable">必須</span>
+          <%= f.collection_select(:status_id  , Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
         </div>
-        <%= f.collection_select(:status_id  , Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
-     <div class="weight-bold-text">
+        <div class="weight-bold-text">
           発売日
+          <%= f.date_field :release_date %>
         </div>
-        <%= f.date_field :release_date %>
         <div class="weight-bold-text">
           購入日
+          <%= f.date_field :purchase_date %>
         </div>
-        <%= f.date_field :purchase_date %>
         <div class="weight-bold-text">
-            <span>価格</span>
-            <span class="indispensable">必須</span>
-          </div>
+          価格
+          <span class="indispensable">必須</span>
           <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）5000" %>
           <span class="price-yen">円</span>
-          <div class="weight-bold-text">
-            <span>個数</span>
-            <span class="indispensable">必須</span>
           </div>
+        <div class="weight-bold-text">
+          個数
+          <span class="indispensable">必須</span>
           <%= f.text_field :quantity_id, class:"price-input", id:"item-price", placeholder:"例）5000" %>
           <span class="price-yen">個</span>
-     </div>
+       </div>
+      </div>
     </div>
     <%# /アイテム詳細 %>
 
     <div class="input-btn-contents">
       <%= f.submit "登録する", class:"input-btn" %>
-      <%=link_to 'もどる', root_path, class:"back-btn" %>
+      <%=link_to 'もどる', genre_path(@genre.id), class:"back-btn" %>
     </div>
 
+    <% end %>
   </div>
-  <% end %>
-  <%= render "shared/footer" %>
 </div>
+
+<%= render "shared/footer" %>

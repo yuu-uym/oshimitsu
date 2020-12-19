@@ -7,9 +7,8 @@
   height: 50px;
 }
 
-
 .page-top {
-  font-size: 10px;
+  font-size: 1vmin;
   padding: 10px;
   text-align: center;
   background-color: #ffe5e5;
@@ -21,7 +20,7 @@
 }
 
 .gnav-item {
-  font-size: 16px;
+  font-size: 3vmin;
   padding: 0 24px;
   list-style: none;
 }
@@ -54,6 +53,7 @@
 .gnav-link:hover:after {
   width: 100%;
 }
+/* 下線の装飾 */
 
 
 

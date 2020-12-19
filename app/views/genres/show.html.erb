@@ -4,86 +4,79 @@
 
   <%# 金額の可視化部分 %>
   <div class ="page-title">
-  <h1 class="t"><br><%= "#{@genre.theme}のお部屋" %></h1>
-   <div class="list">
-        <%= link_to '編集', edit_genre_path, class: "item-red-btn" %>
-        <%= link_to '削除', genre_path, method: :delete, class:'item-destroy' %>
-        <%= link_to '★Twitterでシェアする★', "https://twitter.com/share?url=#{request.url}&text=#{Time.now.month}月 #{@genre.theme} に貢いだ金額は #{purchase_price_month} 円★/&hashtags=推しに貢ぐ", class: 'share_link_twitter', data: { show_count: false }, title: 'Twitter', target: '_blank' %>
-  </div>
-  <br><%= image_tag @genre.image, class: "item-img"  %>
+    <h1 class="heading"><br><%= "#{@genre.theme}のお部屋" %></h1>
+    <div class="list">
+      <%= link_to '編集', edit_genre_path, class: "item-red-btn" %>
+      <%= link_to '削除', genre_path, method: :delete, class:'item-destroy' %>
+      <%= link_to '★Twitterでシェアする★', "https://twitter.com/share?url=#{request.url}&text=#{Time.now.month}月 #{@genre.theme} に貢いだ金額は #{purchase_price_month} 円★/&hashtags=To_Toi", class: 'share_link_twitter', data: { show_count: false }, title: 'Twitter', target: '_blank' %>
+    </div>
+      <br><%= image_tag @genre.image, class: "item-img"  %>
     <div class='price-contents'>
       <div class='price-all'>
-        <h3 class='t'>全体の金額</h3>
-        <br>
-        <p class='all-details'>
-        <%=Time.now.month%>月使った金額は<%= purchase_price_month %>円です。
-        <br>あと<%= @genre.set_amount - purchase_price_month %>円使えます
-        <br>累計で使った金額は<%= purchase_price %>円です！
-       </p>
+        <h3 class='heading'>使った金額</h3>
+        <p class='details'>
+          <br><%=Time.now.month%>月使った金額は<span class="weight-text"><%= purchase_price_month %>円</span>です
+          <br>あと<span class="weight-text"><%= @genre.set_amount - purchase_price_month %>円</span>使えます
+          <br>累計で使った金額は<span class="weight-text"><%= purchase_price %>円</span>です
+        </p>
       </div>
-      <%# <div class='price-genre'> %>
-        <%# <h3 class='price-title'>カテゴリー別の金額</h3> %>
-        <%# <p class='genre-details'> %>
-        <%# グッズの合計金額は＃＃円です。 %>
-        <%# <br>チケットの合計金額は＃＃円です。 %>
-        <%# <br>イベントの合計金額は＃＃円です。 %>
-       <%# </p> %>
-      <%# </div> %>
       <div class='price-status'>
-        <h3 class='t'>ステータス別の金額</h3>
-        <br>
-        <p class='category-details'>
-        購入済みアイテムの合計は<%= purchase_price %>円です。
-        <br>絶対欲しいアイテムの合計は<%= must_price %>円です。
-        <br>気になるアイテムの合計は<%= concern_price %>円です。
+        <h3 class='heading'>ステータス別</h3>
+        <p class='details'>
+          <br>「購入済み」の合計は<span class="weight-text"><%= purchase_price %>円</span>です
+          <br>「絶対欲しい」の合計は<span class="weight-text"><%= must_price %></span>円です
+          <br>「気になる」の合計は<span class="weight-text"><%= concern_price %>円</span>です
        </p>
       </div>
-   </div>
-  <%# 金額の可視化部分 %>
+    </div>
+    <%# 金額の可視化部分 %>
 
-<h2 class='t'>アイテム一覧</h2>
-<div class="add-to"><%= link_to '追加', new_genre_item_path(@genre.id)%></div>
-<%# //アイテムの検索 %>
-<div class="search-form">
-<%= search_form_for @p, url: genre_items_search_path(@genre.id) do |f| %>
-  <%= f.label :name_eq, 'カテゴリー：' %>
-  <%= f.collection_select :category_id_eq, Category.all ,:id, :name,  include_blank: '指定なし' %>
-  <%= f.label :name_eq, 'ステータス：' %>
-  <%= f.collection_select :status_id_eq, Status.all ,:id, :name,  include_blank: '指定なし'  %>
-  <%# <%= f.label :name_eq, '購入月' %> 
-  <%# <%= f.collection_select :name_eq, @items, :purchase_date, :purchase_date,  include_blank: '指定なし' %> 
-     <%= f.label :price, '価格：' %>
-    <%= f.search_field :price_gteq %>円
-    〜
-    <%= f.search_field :price_lteq %>円
-  <%= f.submit '絞り込み', :class=>"btn"%>
-<% end %>
-</div>
-<%# //アイテムの検索 %>
-
- <%# //アイテムのすべてを展開 %>
-    <table class='table-lists'>
-      <tr class='item-list'>
-      <th><%="カテゴリー名" %></th><th><%="商品名" %></th><th><%="金額" %></th><th><%="個数" %><th><%="合計金額" %></th></th><th><%="発売日" %></th><th><%="購入日" %><th><%="ステータス" %></th><th><%="編集" %></th><th><%="削除" %></th>
-      </tr>
-<div class='item-contents'>
-     <% @items.each do |item| %>
-      <tr class='item-list'>
-           <td><%= item.category.name %></td>
-           <td><%= item.name %></td>
-           <td><%= item.price %>円</td>
-           <td><%= item.quantity_id %>個</td>
-           <td><%= item.sum_of_price%>円</td>
-           <td><%= item.release_date %></td>
-           <td><%= item.purchase_date %></td>
-           <td><%= item.status.name %></td>
-           <td><%= link_to '編集', edit_genre_item_path(@genre,item), class: "item-red-btn" %></td>
-           <td><%= link_to '削除', genre_item_path(@genre,item), method: :delete, class:'item-destroy' %></td>
-     </tr>
-  <% end %>
-   </table>
-  <%# //アイテムのすべてを展開 %>
-
+  <h2 class='heading'>アイテム一覧</h2>
+  <div class="add-to">
+    <%= link_to '追加', new_genre_item_path(@genre.id)%>
   </div>
-      
+
+  <%# //アイテムの検索 %>
+  <div class="search-form">
+    <%= search_form_for @p, url: genre_items_search_path(@genre.id) do |f| %>
+      <%= f.label :name_eq, 'カテゴリー：' %>
+      <%= f.collection_select :category_id_eq, Category.all ,:id, :name,  include_blank: '指定なし' %>
+      <%= f.label :name_eq, 'ステータス：' %>
+      <%= f.collection_select :status_id_eq, Status.all ,:id, :name,  include_blank: '指定なし'  %>
+      <%# <%= f.label :name_eq, '購入月' %> 
+      <%# <%= f.collection_select :name_eq, @items, :purchase_date, :purchase_date,  include_blank: '指定なし' %> 
+      <br class="br-tb"><%= f.label :price, '価格：' %>
+      <%= f.search_field :price_gteq %>円
+        〜
+      <%= f.search_field :price_lteq %>円
+      <%= f.submit '絞り込み', :class=>"btn"%>
+    <% end %>
+  </div>
+  <%# //アイテムの検索 %>
+
+  <%# //アイテムのすべてを展開 %>
+  <table class='table-lists'>
+    <tr class='item-list'>
+      <th><%="カテゴリー名" %></th><th><%="商品名" %></th><th><%="金額" %></th><th><%="個数" %><th><%="合計金額" %></th></th><th><%="発売日" %></th><th><%="購入日" %><th><%="ステータス" %></th><th><%="編集" %></th><th><%="削除" %></th>
+    </tr>
+  <div class='item-contents'>
+    <% @items.each do |item| %>
+      <tr class='item-list'>
+         <td><%= item.category.name %></td>
+         <td><%= item.name %></td>
+         <td><%= item.price %>円</td>
+         <td><%= item.quantity_id %>個</td>
+         <td><%= item.sum_of_price%>円</td>
+         <td><%= item.release_date %></td>
+         <td><%= item.purchase_date %></td>
+         <td><%= item.status.name %></td>
+         <td><%= link_to '編集', edit_genre_item_path(@genre,item), class: "item-red-btn" %></td>
+         <td><%= link_to '削除', genre_item_path(@genre,item), method: :delete, class:'item-destroy' %></td>
+      </tr>
+    <% end %>
+  </div>
+  </table>
+  <%# //アイテムのすべてを展開 %>
+</div>
+
 <%= render "shared/footer" %>

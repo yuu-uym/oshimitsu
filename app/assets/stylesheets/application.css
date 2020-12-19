@@ -16,4 +16,9 @@
 
  body{
    font-family: 'arial unicode ms', Courier, monospace;
+   color: rgb(51, 43, 43);
  }
+
+ * {
+  box-sizing: border-box;
+}

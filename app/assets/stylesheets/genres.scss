@@ -6,52 +6,61 @@
   height: calc(100vh- 50px - 100px);
   padding: 50px 0 0 0;
 }
+
+/* トップページ上部 */
 .title-contents{
-  background-color:  #fff4f4;
   width: 100vw;
-  height: 30vh;
-  background-image: image-url('heart.jpeg');
+  height: 25vh;
+  background-image: image-url('5422.jpg');
   background-size: cover;
 }
 
 .service-title{
+  font-size: 5vmin;
   text-align: center;
 }
 
 .service-explanation{
-  font-size: 25px;
+  font-size: 3vmin ;
   text-align: center;
 }
+/* トップページ上部 */
+
+/* 金額一覧 */
 .price-contents{
   text-align: center;
   display: flex;
   justify-content: space-around;
-  margin: 0 0 30px 0;
-  padding: 20px;
+  margin: auto;
+  padding: 20px ;
+}
+
+.details{
+  font-size: 2vmin;
+}
+
+.weight-text{
+  font-weight: bolder;
+  font-size: 2.5vmin ;
 }
 
 .price-all {
-  padding: 1em 1em;
-  margin: 3em 0;
-  font-weight: bold;
   border-radius: 20px;
   background-color:#fff4f4;
-  width: 38vw;
+  width: 45vw;
+  padding: 3vh;
+  height: 15vh;
 }
 
 .price-status{
-  padding: 1em 1em;
-  margin: 3em 0;
-  font-weight: bold;
   border-radius: 20px;
   background-color:#fff4f4;
-  width: 38vw;
+  width: 45vw;
+  padding: 3vh;
+  height: 15vh;
 }
 
-.title{
-  text-align: center;
-}
-
+/* ジャンル一覧 */
 .genre-contents{
   text-align: center;
   display: flex;
@@ -76,12 +85,8 @@
   text-align: center;
 }
 
-.app-t{
-  font-size: 50px;
-  text-align: center;
-}
-.t{
-  font-size: 25px;
+.heading{
+  font-size: 3vmin;
   text-align: center;
 }
 
@@ -97,8 +102,12 @@
 .list{
   list-style: none;
   margin: 10px;
+  font-size: 3vmin;
 }
 
+.br-tb { display:none; }
+
+/* 絞り込み機能 */
 .search-back{
   margin: 30px 0;
   text-align: center;
@@ -114,9 +123,39 @@
 
 .search-form{
   margin: 20px;
+  font-size: 3vmin;
 }
 
 .none{
   text-align: center;
   margin: 50px 0 0 0;
+}
+/* 絞り込み機能 */
+
+/* タブレット表示時 */
+@media (max-width: 1024px) {
+  .br-pc {display:none; }
+  .br-tb { display:block; }
+
+}
+
+
+/* スマホ表示時 */
+@media (max-width: 750px) {
+
+  .title-contents{
+    height: 20vh;
+  }
+
+  .item-list{
+    font-size: 2vmin;
+  }
+
+  .details{
+    font-size: 2.2vmin ;
+  }
+
+  .br-pc {display:none; }
+  .br-tb { display:block; }
+
 }
