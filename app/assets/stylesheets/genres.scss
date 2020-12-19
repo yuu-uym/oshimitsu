@@ -130,6 +130,55 @@
 /* タブレット表示時 */
 @media (max-width: 1024px) {
 
+  .title-contents{
+    width: 100vw;
+    height: 20vh;
+    background-image: image-url('5422.jpg');
+    background-size: cover;
+  }
+  
+  .service-title{
+    font-size: 5vmin;
+    text-align: center;
+  }
+  
+  .service-explanation{
+    font-size: 3vmin ;
+    text-align: center;
+  }
+
+  .price-contents{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    padding: 20px ;
+    margin: auto;
+  }
+  
+  .heading{
+    font-size: 3.5vmin ;
+  }
+  .details{
+    font-size: 2vmin ;
+  }
+  
+  .price-all {
+    border-radius: 20px;
+    background-color:#fff4f4;
+    width: 45vw;
+    padding: 3vh;
+    height: 15vh;
+  }
+  
+  .price-status{
+    border-radius: 20px;
+    background-color:#fff4f4;
+    width: 45vw;
+    padding: 3vh;
+    height: 15vh;
+  }
+
   .br-pc {display:none; }
   .br-tb { display:block; }
 
