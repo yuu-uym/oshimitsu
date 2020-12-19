@@ -1,8 +1,8 @@
 <%= render "shared/header" %>
 
-<div class="genre-input-contents">
-  <div class="genre-input-main">
-    <h2 class="genre-input-title">ジャンルの修正</h2>
+<div class="input-contents">
+  <div class="input-main">
+    <h2 class="input-title">ジャンルの修正</h2>
      <%= form_with model: @genre, url: genre_path, local: true do |f| %>
 
         <%= render 'shared/error_messages', model: f.object %>
@@ -31,7 +31,7 @@
 
     <%# 月額上限設定 %>
     <div class="set-amount">
-      <div class="weight-bold-text question-text">
+      <div class="weight-bold-text">
         <span>月額上限<br>(¥300〜9,999,999)</span>
       </div>
       <div>

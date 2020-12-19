@@ -6,6 +6,8 @@
   height: calc(100vh- 50px - 100px);
   padding: 50px 0 0 0;
 }
+
+/* トップページ上部 */
 .title-contents{
   width: 100vw;
   height: 40vh;
@@ -14,13 +16,17 @@
 }
 
 .service-title{
+  font-size: 7.5vh;
   text-align: center;
 }
 
 .service-explanation{
-  font-size: 5vh;
+  font-size: 5vh ;
   text-align: center;
 }
+/* トップページ上部 */
+
+/* 金額一覧 */
 .price-contents{
   text-align: center;
   display: flex;
@@ -29,31 +35,27 @@
   padding: 20px ;
 }
 
+.details{
+  font-size: 3.5vh ;
+}
+
 .price-all {
   border-radius: 20px;
   background-color:#fff4f4;
   width: 38vw;
-  font-size: large;
-  padding: 20px;
-  height: 20vh;
+  padding: 3vh;
+  height: 25vh;
 }
 
 .price-status{
   border-radius: 20px;
   background-color:#fff4f4;
   width: 38vw;
-  font-size: large;
-  padding: 20px;
-  height: 20vh;
-}
-.contents{
-  background-color: #333;
+  padding: 3vh;
+  height: 25vh;
 }
 
-.title{
-  text-align: center;
-}
-
+/* ジャンル一覧 */
 .genre-contents{
   text-align: center;
   display: flex;
@@ -78,12 +80,8 @@
   text-align: center;
 }
 
-.app-t{
-  font-size: 7.5vh;
-  text-align: center;
-}
-.t{
-  font-size: 25px;
+.heading{
+  font-size: 4vh;
   text-align: center;
 }
 
@@ -99,10 +97,12 @@
 .list{
   list-style: none;
   margin: 10px;
+  font-size: 3vh;
 }
 
 .br-tb { display:none; }
 
+/* 絞り込み機能 */
 .search-back{
   margin: 30px 0;
   text-align: center;
@@ -118,24 +118,19 @@
 
 .search-form{
   margin: 20px;
+  font-size: 3vh;
 }
 
 .none{
   text-align: center;
   margin: 50px 0 0 0;
 }
+/* 絞り込み機能 */
 
 /* タブレット表示時 */
 @media (max-width: 1024px) {
 
-  .price-contents{
-    height: 4vh;
-  }
-
-  .details{
-    font-size: 2.5vh;
-  }
-
   .br-pc {display:none; }
   .br-tb { display:block; }
+
 }

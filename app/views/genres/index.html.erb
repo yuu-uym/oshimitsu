@@ -4,7 +4,7 @@
 
   <%# 画面上部の「アプリの説明」帯部分 %>
   <div class='title-contents'>
-    <br><h2 class='app-t'>〜To Toi〜</h2>
+    <br><h2 class='service-title'>〜To Toi〜</h2>
     <p class='service-explanation'>
       <br>「目をつけていたあのグッズ、発売日はいつだっけ？」
       <br>「今月はイベントが盛りだくさん！課金にまわせる金額は…？」
@@ -19,7 +19,7 @@
   <% if user_signed_in? %>
     <div class='price-contents'>
       <div class='price-all'>
-        <h3 class='t'>全推しに使った金額</h3>
+        <h3 class='heading'>全推しに使った金額</h3>
         <p class='details'>
           <br><%= Time.now.month%>月は <%= all_purchase_price_month %> 円使っています
           <br>あと <%= all_set_amount - all_purchase_price_month %> 円使えます
@@ -27,7 +27,7 @@
        </p>
       </div>
       <div class='price-status'>
-        <h3 class='t'>ステータス別</h3>
+        <h3 class='heading'>ステータス別</h3>
         <p class='details'>
           <br>「購入済み」の合計は <%= all_purchase_price %>円 です
           <br>「絶対欲しい」の合計は <%= all_must_price %>円 です
@@ -38,10 +38,10 @@
  
   <%# ログインしていなければこっち %>
   <% else %>
-  <h1 class="t">※サンプル画面※</h1>
+  <h1 class="heading">※サンプル画面※</h1>
     <div class='price-contents'>
       <div class='price-all'>
-        <h3 class='t'>全体の金額</h3>
+        <h3 class='heading'>全体の金額</h3>
         <p class='details'>
         <br>ここに当月利用した金額が表示されます
         <br>ここに当月利用できる残額が表示されます
@@ -49,7 +49,7 @@
         </p>
       </div>
       <div class='price-status'>
-        <h3 class='t'>ステータス別の金額</h3>
+        <h3 class='heading'>ステータス別の金額</h3>
         <p class='details'>
         <br>購入済みアイテムの合計金額が表示されます
         <br>絶対欲しいアイテムの合計金額が表示されます
@@ -62,7 +62,7 @@
       
   <%# //全てのジャンルを展開 %>
 
-  <h2 class='t'>ジャンル一覧</h2>
+  <h2 class='heading'>ジャンル一覧</h2>
   <% if user_signed_in? %>
     <%= render "shared/genre_contents" %>
   <%# 全てのジャンルを展開 %>

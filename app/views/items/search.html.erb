@@ -1,7 +1,7 @@
  <%= render "shared/header" %>
 
 <div class="main">
-  <h1 class="t">
+  <h1 class="heading">
     絞り込み結果
   </h1>
 </div>
@@ -14,6 +14,7 @@
         <th><%="金額" %></th><th><%="個数" %><th><%="合計金額" %></th>
         <th><%="発売日" %></th><th><%="購入日" %><th><%="ステータス" %></th></th>
       </tr>
+    <div class='item-contents'>
       <% @results.each do |result| %>
       <tr class='item-list'>
         <td><%= result.category.name %></td>
@@ -26,6 +27,7 @@
         <td><%= result.status.name %></td>
       </tr>
       <% end %>
+    </div>
     </table>
   <%# 検索結果が一つでもあればこちら %>
 

@@ -1,8 +1,8 @@
 <%= render "shared/header" %>
 
-<div class="genre-input-contents">
-  <div class="genre-input-main">
-    <h2 class="genre-input-title">アイテム情報の修正</h2>
+<div class="input-contents">
+  <div class="input-main">
+    <h2 class="input-title">アイテム情報の修正</h2>
     <%= form_with model: @item, url: genre_item_path, local: true do |f| %>
 
     <%= render 'shared/error_messages', model: f.object  %> 

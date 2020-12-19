@@ -4,7 +4,7 @@
 
   <%# 金額の可視化部分 %>
   <div class ="page-title">
-    <h1 class="t"><br><%= "#{@genre.theme}のお部屋" %></h1>
+    <h1 class="heading"><br><%= "#{@genre.theme}のお部屋" %></h1>
     <div class="list">
       <%= link_to '編集', edit_genre_path, class: "item-red-btn" %>
       <%= link_to '削除', genre_path, method: :delete, class:'item-destroy' %>
@@ -13,16 +13,16 @@
       <br><%= image_tag @genre.image, class: "item-img"  %>
     <div class='price-contents'>
       <div class='price-all'>
-        <h3 class='t'>使った金額<</h3>
-        <p class='all-details'>
+        <h3 class='heading'>使った金額</h3>
+        <p class='details'>
           <br><%=Time.now.month%>月使った金額は<%= purchase_price_month %>円です
           <br>あと<%= @genre.set_amount - purchase_price_month %>円使えます
           <br>累計で使った金額は<%= purchase_price %>円です
         </p>
       </div>
       <div class='price-status'>
-        <h3 class='t'>ステータス別</h3>
-        <p class='status-details'>
+        <h3 class='heading'>ステータス別</h3>
+        <p class='details'>
           <br>「購入済み」の合計は<%= purchase_price %>円です
           <br>「絶対欲しい」の合計は<%= must_price %>円です
           <br>「気になる」の合計は<%= concern_price %>円です
@@ -31,7 +31,7 @@
     </div>
     <%# 金額の可視化部分 %>
 
-  <h2 class='t'>アイテム一覧</h2>
+  <h2 class='heading'>アイテム一覧</h2>
   <div class="add-to">
     <%= link_to '追加', new_genre_item_path(@genre.id)%>
   </div>
