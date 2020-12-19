@@ -15,17 +15,17 @@
       <div class='price-all'>
         <h3 class='heading'>使った金額</h3>
         <p class='details'>
-          <br><%=Time.now.month%>月使った金額は<%= purchase_price_month %>円です
-          <br>あと<%= @genre.set_amount - purchase_price_month %>円使えます
-          <br>累計で使った金額は<%= purchase_price %>円です
+          <br><%=Time.now.month%>月使った金額は<span class="weight-text"><%= purchase_price_month %>円</span>です
+          <br>あと<span class="weight-text"><%= @genre.set_amount - purchase_price_month %>円</span>使えます
+          <br>累計で使った金額は<span class="weight-text"><%= purchase_price %>円</span>です
         </p>
       </div>
       <div class='price-status'>
         <h3 class='heading'>ステータス別</h3>
         <p class='details'>
-          <br>「購入済み」の合計は<%= purchase_price %>円です
-          <br>「絶対欲しい」の合計は<%= must_price %>円です
-          <br>「気になる」の合計は<%= concern_price %>円です
+          <br>「購入済み」の合計は<span class="weight-text"><%= purchase_price %>円</span>です
+          <br>「絶対欲しい」の合計は<span class="weight-text"><%= must_price %></span>円です
+          <br>「気になる」の合計は<span class="weight-text"><%= concern_price %>円</span>です
        </p>
       </div>
     </div>
