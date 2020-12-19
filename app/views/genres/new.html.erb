@@ -10,6 +10,7 @@
     <div class="img-upload">
       <div class="weight-bold-text">
         アイコン画像
+        <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
         <p>
@@ -25,18 +26,17 @@
         ジャンルのテーマ
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :theme, class:"items-text", id:"item-name", placeholder:"テーマ（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :theme, class:"items-text", id:"item-name", placeholder:"テーマ（必須 20文字まで)", maxlength:"20" %>
     </div>
     <%# /テーマ名 %>
 
     <%# 月額上限設定 %>
     <div class="set-amount">
       <div class="weight-bold-text">
-        <span>月額上限<br></span>
-      </div>
-        <div class="price-content">
-          <span class="price-yen">¥</span>
-          <%= f.text_field :set_amount, class:"price-input", id:"item-price", placeholder:"例）30,000" %>
+         月額上限
+        <span class="indispensable">必須</span>
+         <%= f.text_field :set_amount, class:"price-input", id:"item-price", placeholder:"例）30,000" %>
+          <span class="price-yen">円</span>
         </div>
         </span>
     </div>
