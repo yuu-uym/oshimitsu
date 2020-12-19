@@ -13,7 +13,7 @@
         商品名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"商品名（必須 40文字まで)" %>
     </div>
     <%# /商品名 %>
 
@@ -23,33 +23,33 @@
         <div class="weight-bold-text">
           カテゴリー
           <span class="indispensable">必須</span>
+          <%= f.collection_select(:category_id  , Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
         </div>
-        <%= f.collection_select(:category_id  , Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
         <div class="weight-bold-text">
           ステータス
           <span class="indispensable">必須</span>
+          <%= f.collection_select(:status_id  , Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
         </div>
-        <%= f.collection_select(:status_id  , Status.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
         <div class="weight-bold-text">
           発売日
+          <%= f.date_field :release_date %>
         </div>
-        <%= f.date_field :release_date %>
         <div class="weight-bold-text">
           購入日
+          <%= f.date_field :purchase_date %>
         </div>
-        <%= f.date_field :purchase_date %>
         <div class="weight-bold-text">
           価格
           <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）5000" %>
-        <span class="price-yen">円</span>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）5000" %>
+          <span class="price-yen">円</span>
+          </div>
         <div class="weight-bold-text">
           個数
           <span class="indispensable">必須</span>
-        </div>
-        <%= f.text_field :quantity_id, class:"price-input", id:"item-price", placeholder:"例）5000" %>
-        <span class="price-yen">個</span>
+          <%= f.text_field :quantity_id, class:"price-input", id:"item-price", placeholder:"例）5000" %>
+          <span class="price-yen">個</span>
+       </div>
       </div>
     </div>
     <%# /アイテム詳細 %>
