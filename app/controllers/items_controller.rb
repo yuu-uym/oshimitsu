@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
     @item = @genre.items.find(params[:id])
     if @item.user_id == current_user.id
        @item.destroy
-      redirect_to root_path
+      redirect_to genre_path(@genre.id)
     else
       redirect_to action: :index
     end
