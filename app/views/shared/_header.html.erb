@@ -6,6 +6,7 @@
       <li class="gnav-item"><%= link_to 'ジャンル追加', new_genre_path, class: "gnav-link" %></li>
     <% if user_signed_in? %>
       <li class="gnav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "gnav-link" %></li>
+      <li class="gnav-item"><%= current_user.nickname %>さん</li>
     <% else %> 
       <li class="gnav-item"><%= link_to 'ログイン', new_user_session_path, class: "gnav-link" %></li>
       <li class="gnav-item"><%= link_to '新規登録', new_user_registration_path, class: "gnav-link" %></li>
