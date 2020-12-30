@@ -1,3 +1,4 @@
+  <div class="relative">
  <%= render "shared/header" %>
 
 <div class='main'>
@@ -60,7 +61,42 @@
       <th><%="カテゴリー名" %></th><th><%="商品名" %></th><th><%="金額" %></th><th><%="個数" %><th><%="合計金額" %></th></th><th><%="発売日" %></th><th><%="購入日" %><th><%="ステータス" %></th><th><%="編集" %></th><th><%="削除" %></th>
     </tr>
   <div class='item-contents'>
-    <% @items.each do |item| %>
+  <tr class="item-list-sub"><th colspan="10">購入済み</th></tr>
+    <% @item1.each do |item| %>
+      <tr class='item-list'>
+         <td><%= item.category.name %></td>
+         <td><%= item.name %></td>
+         <td><%= item.price %>円</td>
+         <td><%= item.quantity_id %>個</td>
+         <td><%= item.sum_of_price%>円</td>
+         <td><%= item.release_date %></td>
+         <td><%= item.purchase_date %></td>
+         <td><%= item.status.name %></td>
+         <td><%= link_to '編集', edit_genre_item_path(@genre,item), class: "item-red-btn" %></td>
+         <td><%= link_to '削除', genre_item_path(@genre,item), method: :delete, class:'item-destroy' %></td>
+      </tr>
+    <% end %>
+  </div>
+    <div class='item-contents'>
+  <tr class="item-list-sub"><th colspan="10">絶対欲しい</th></tr>
+    <% @item2.each do |item| %>
+      <tr class='item-list'>
+         <td><%= item.category.name %></td>
+         <td><%= item.name %></td>
+         <td><%= item.price %>円</td>
+         <td><%= item.quantity_id %>個</td>
+         <td><%= item.sum_of_price%>円</td>
+         <td><%= item.release_date %></td>
+         <td><%= item.purchase_date %></td>
+         <td><%= item.status.name %></td>
+         <td><%= link_to '編集', edit_genre_item_path(@genre,item), class: "item-red-btn" %></td>
+         <td><%= link_to '削除', genre_item_path(@genre,item), method: :delete, class:'item-destroy' %></td>
+      </tr>
+    <% end %>
+  </div>
+    <div class='item-contents'>
+  <tr class="item-list-sub"><th colspan="10">気になる</th></tr>
+    <% @item3.each do |item| %>
       <tr class='item-list'>
          <td><%= item.category.name %></td>
          <td><%= item.name %></td>
@@ -78,5 +114,5 @@
   </table>
   <%# //アイテムのすべてを展開 %>
 </div>
-
+</div>
 <%= render "shared/footer" %>

@@ -5,19 +5,26 @@
 /* アイテムリスト */
 .item-list{
   list-style: none;
+  background-color:#fbd7d7;
 }
 .item-list a{
   text-decoration: none;
   color: #333;
 }
 
+.item-list-sub{
+  background-color: #ffeeee;
+}
+
 table th {
   padding: 10px;
-  background-color:#ffe5e5;
+  
 }
 
 table td {
   padding: 3px 10px;
+  background-color:#ffffff
+  ;
 }
 
 table {
@@ -30,8 +37,8 @@ table th, table td {
 }
 
 .table-lists{
-  margin: 15px 0;
-
+  margin: auto;
+  width: 80%;
 }
 .add-to{
   margin: 10px;
@@ -57,3 +64,4 @@ table th, table td {
   border-radius: 20px;
   font-size: 3vmin;
 }
+

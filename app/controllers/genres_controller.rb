@@ -23,7 +23,9 @@ class GenresController < ApplicationController
 
   def show
     @genre = Genre.find(params[:id])
-    @items = @genre.items.includes(:genre).order("created_at DESC")
+    @item1 = @genre.items.includes(:genre).where(status_id: 2).order("created_at DESC")
+    @item2 = @genre.items.includes(:genre).where(status_id: 3).order("created_at DESC")
+    @item3 = @genre.items.includes(:genre).where(status_id: 4).order("created_at DESC")
     redirect_to action: :index if @genre.user_id != current_user.id 
   end
 
