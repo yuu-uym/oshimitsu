@@ -18,7 +18,6 @@
 
 table th {
   padding: 10px;
-  
 }
 
 table td {
@@ -30,8 +29,9 @@ table td {
 table {
   border-collapse: collapse;
   border: solid 2px pink;
-  width: 100%
-}
+  width: 100%;
+  white-space: nowrap;
+  }
 
 table th, table td {
   border: solid 1px pink;
@@ -42,6 +42,8 @@ table th, table td {
   margin-bottom: 40px;
   width: 80%;
 }
+
+
 .add-to{
   margin: 10px;
 }
@@ -58,7 +60,7 @@ table th, table td {
   border-radius: 20px;
 }
 
-/* アイテムリスト */
+/* Twitter */
 
 .share_link_twitter{
   border: solid 2px white;

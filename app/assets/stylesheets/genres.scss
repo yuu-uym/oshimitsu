@@ -48,16 +48,8 @@
   border-radius: 20px;
   background-color:#fff4f4;
   width: 45vw;
-  padding: 3vh;
-  height: 15vh;
-}
+  padding: 20px;
 
-.price-status{
-  border-radius: 20px;
-  background-color:#fff4f4;
-  width: 45vw;
-  padding: 3vh;
-  height: 15vh;
 }
 
 /* ジャンル一覧 */
@@ -143,8 +135,16 @@
 /* スマホ表示時 */
 @media (max-width: 750px) {
 
+  table {
+    border-collapse: collapse;
+    border: solid 2px pink;
+    width: 100%;
+      display: block;
+      overflow-x: scroll;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+  }
   
-
   .item-list{
     font-size: 2vmin;
   }
@@ -157,3 +157,5 @@
   .br-tb { display:block; }
 
 }
+
+

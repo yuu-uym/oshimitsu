@@ -1,9 +1,8 @@
- <div class="relative">
+<div class="relative">
 <%= render "shared/header" %>
 
 <div class='main'>
 
-  <%# 画面上部の「アプリの説明」帯部分 %>
   <% if user_signed_in? %>
   <div class='title-contents'>
     <br><h2 class='service-title'>〜Oshi Mitsu〜</h2>
@@ -11,10 +10,8 @@
       <%= current_user.nickname %>さんのページ
     </p>
   </div>
-  <%# /画面上部の「アプリの説明」帯部分  %>
 
   <%# 金額の可視化部分 %>
-  <%# ログインしていたらこっち %>
     <div class='price-contents'>
       <div class='price-all'>
         <h3 class='heading'>全推しに使った金額</h3>
@@ -24,7 +21,7 @@
           <br>累計で使った金額は<span class="weight-text"><%= all_purchase_price %></span>円です
        </p>
       </div>
-      <div class='price-status'>
+      <div class='price-all'>
         <h3 class='heading'>ステータス別</h3>
         <p class='details'>
           <br>「購入済み」の合計は<span class="weight-text"><%= all_purchase_price %>円</span>です
@@ -33,8 +30,10 @@
         </p>
       </div>
     </div>
+    <%# ジャンル一覧 %>
     <%= render "shared/genre_contents" %>
-  <%# //ログインしていない場合はこちら %>
+
+  <%# //ログインしていない場合 %>
   <%else%>
   <%= render "shared/about" %>
   <% end %>
