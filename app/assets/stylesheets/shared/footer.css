@@ -2,6 +2,8 @@
   background-color: #ffb7b7;
   width: 100vw;
   height: 40px;
+  position: absolute;
+  bottom: 0;
 }
 
 .footer .inner {
@@ -12,4 +14,8 @@
   font-size: 1vmin;
   text-align: center;
   color: #333;
+}
+.relative{
+  min-height: 100vh;
+  position: relative;
 }
