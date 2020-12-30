@@ -4,20 +4,17 @@
 <div class='main'>
 
   <%# 画面上部の「アプリの説明」帯部分 %>
+  <% if user_signed_in? %>
   <div class='title-contents'>
     <br><h2 class='service-title'>〜Oshi Mitsu〜</h2>
     <p class='service-explanation'>
-      <br>「目をつけていたあのグッズ、発売日はいつだっけ？」
-      <br>「今月はイベントが盛りだくさん！課金にまわせる金額は…？」
-      <br>推しのアイテムをしっかり管理！貢いだ金額もしっかり管理！
-      <br>Oshi Mitsuで、あなたの推し活をよりHappyに！
+      <%= current_user.nickname %>さんのページ
     </p>
   </div>
   <%# /画面上部の「アプリの説明」帯部分  %>
 
   <%# 金額の可視化部分 %>
   <%# ログインしていたらこっち %>
-  <% if user_signed_in? %>
     <div class='price-contents'>
       <div class='price-all'>
         <h3 class='heading'>全推しに使った金額</h3>
@@ -36,55 +33,11 @@
         </p>
       </div>
     </div>
- 
-  <%# ログインしていなければこっち %>
-  <% else %>
-  <h1 class="heading">※サンプル画面※</h1>
-    <div class='price-contents'>
-      <div class='price-all'>
-        <h3 class='heading'>全体の金額</h3>
-        <p class='details'>
-        <br>ここに当月利用した金額が表示されます
-        <br>ここに当月利用できる残額が表示されます
-        <br>ここに累計で利用した金額が表示されます
-        </p>
-      </div>
-      <div class='price-status'>
-        <h3 class='heading'>ステータス別の金額</h3>
-        <p class='details'>
-        <br>購入済みアイテムの合計金額が表示されます
-        <br>絶対欲しいアイテムの合計金額が表示されます
-        <br>気になるアイテムの合計金額が表示されます
-       </p>
-      </div>
-    </div>
-  <% end %>
-  <%# 金額の可視化部分 %>
-      
-  <%# //全てのジャンルを展開 %>
-
-  <h2 class='heading'>ジャンル一覧</h2>
-  <% if user_signed_in? %>
     <%= render "shared/genre_contents" %>
-  <%# 全てのジャンルを展開 %>
-    
-    <%# //ログインしていない場合はこちら %>
-  <% else %>
-    <div class='genre-contents'>
-      <li class='list'>
-        <div class='item-img-content'>
-          <%= image_tag "8094.jpg", class: "item-img" %>
-        </div>
-        <div class='item-info'>
-          <h3 class='item-name'><%= "「ジャンル名」のお部屋" %></h3>
-          <div class='item-price'>
-            <span>月額上限金額</span>
-          </div>
-        </div>
-      </li>
-    </div>
-  <% end %>
   <%# //ログインしていない場合はこちら %>
+  <%else%>
+  <%= render "shared/about" %>
+  <% end %>
 
 <%= render "shared/footer" %>
 </div>

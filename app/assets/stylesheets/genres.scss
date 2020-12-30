@@ -4,13 +4,13 @@
 
 .main{
   height: calc(100vh- 50px - 100px);
-  padding: 50px 0 50px 0;
+  padding: 50px 0 40px 0;
 }
 
 /* トップページ上部 */
 .title-contents{
   width: 100vw;
-  height: 25vh;
+  height: 15vh;
   background-image: image-url('5422.jpg');
   background-size: cover;
 }
@@ -143,9 +143,7 @@
 /* スマホ表示時 */
 @media (max-width: 750px) {
 
-  .title-contents{
-    height: 20vh;
-  }
+  
 
   .item-list{
     font-size: 2vmin;
