@@ -7,9 +7,9 @@
   <div class ="page-title">
     <h1 class="heading"><br><%= "#{@genre.theme}のお部屋" %></h1>
     <div class="list">
-      <%= link_to '編集', edit_genre_path, class: "item-red-btn" %>
-      <%= link_to '削除', genre_path, method: :delete, class:'item-destroy' %>
-      <%= link_to '★Twitterでシェアする★', "https://twitter.com/share?url=#{request.url}&text=#{Time.now.month}月 #{@genre.theme} に貢いだ金額は #{purchase_price_month} 円★/&hashtags=OshiMitsu&hashtags=推し貢", class: 'share_link_twitter', data: { show_count: false }, title: 'Twitter', target: '_blank' %>
+      <%= link_to '編集', edit_genre_path, class: "gnav-link" %>
+      <%= link_to '削除', genre_path, method: :delete, class:'gnav-link' %>
+      <%= link_to '★Twitterでシェアする★', "https://twitter.com/share?url=#{request.url}&text=#{Time.now.month}月 #{@genre.theme} に貢いだ金額は #{purchase_price_month} 円★/&hashtags=OshiMitsu&hashtags=推し貢", class: 'share_link_twitter', data: { show_count: false }, title: 'Twitter', target: '_blank', id:'share_link_twitter' %>
     </div>
       <br><%= image_tag @genre.image, class: "item-img"  %>
     <div class='price-contents'>
@@ -34,7 +34,7 @@
 
   <h2 class='heading'>アイテム一覧</h2>
   <div class="add-to">
-    <%= link_to '追加', new_genre_item_path(@genre.id)%>
+    <%= link_to '追加', new_genre_item_path(@genre.id), id:"input-btn"%>
   </div>
 
   <%# //アイテムの検索 %>
@@ -50,7 +50,7 @@
       <%= f.search_field :price_gteq %>円
         〜
       <%= f.search_field :price_lteq %>円
-      <%= f.submit '絞り込み', :class=>"btn"%>
+      <%= f.submit '絞り込み', :class=>"btn", id:"search-btn"%>
     <% end %>
   </div>
   <%# //アイテムの検索 %>
