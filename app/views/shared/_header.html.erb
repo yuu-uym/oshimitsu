@@ -4,7 +4,7 @@
     <ul class="gnav-list">
     <% if user_signed_in? %>
       <li class="gnav-item"><%= link_to 'トップページ', root_path, class: "gnav-link" %></li>
-      <li class="gnav-item"><%= link_to 'ジャンル追加', new_genre_path, class: "gnav-link" %></li>
+      <li class="gnav-item"><%= link_to '推しの追加', new_genre_path, class: "gnav-link" %></li>
       <li class="gnav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "gnav-link" %></li>
     <% else %> 
       <li class="gnav-item"><%= link_to 'ログイン', new_user_session_path, class: "gnav-link" %></li>
