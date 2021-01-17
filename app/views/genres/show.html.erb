@@ -72,8 +72,8 @@
          <td><%= item.release_date %></td>
          <td><%= item.purchase_date %></td>
          <td><%= item.status.name %></td>
-         <td><%= link_to '編集', edit_genre_item_path(@genre,item), class: "item-red-btn" %></td>
-         <td><%= link_to '削除', genre_item_path(@genre,item), method: :delete, class:'item-destroy',data: { confirm: '削除しますか？' }  %></td>
+         <td><%= link_to link_to image_tag('ed.jpg', class: "ed-del"), edit_genre_item_path(@genre,item), class: "item-red-btn" %></td>
+         <td><%= link_to link_to image_tag('del.jpg', class: "ed-del"), genre_item_path(@genre,item), method: :delete, class:'item-destroy',data: { confirm: '削除しますか？' }  %></td>
       </tr>
     <% end %>
   </div>
@@ -89,8 +89,8 @@
          <td><%= item.release_date %></td>
          <td><%= item.purchase_date %></td>
          <td><%= item.status.name %></td>
-         <td><%= link_to '編集', edit_genre_item_path(@genre,item), class: "item-red-btn" %></td>
-         <td><%= link_to '削除', genre_item_path(@genre,item), method: :delete, class:'item-destroy',data: { confirm: '削除しますか？' }  %></td>
+         <td><%= link_to image_tag('ed.jpg', class: "ed-del"), edit_genre_item_path(@genre,item), class: "item-red-btn" %></td>
+         <td><%= link_to image_tag('del.jpg', class: "ed-del"), genre_item_path(@genre,item), method: :delete, class:'item-destroy',data: { confirm: '削除しますか？' }  %></td>
       </tr>
     <% end %>
   </div>
@@ -106,8 +106,8 @@
          <td><%= item.release_date %></td>
          <td><%= item.purchase_date %></td>
          <td><%= item.status.name %></td>
-         <td><%= link_to '編集', edit_genre_item_path(@genre,item), class: "item-red-btn" %></td>
-         <td><%= link_to '削除', genre_item_path(@genre,item), method: :delete, class:'item-destroy',data: { confirm: '削除しますか？' }  %></td>
+         <td><%= link_to image_tag('ed.jpg', class: "ed-del"), edit_genre_item_path(@genre,item), class: "item-red-btn" %></td>
+         <td><%= link_to image_tag('del.jpg', class: "ed-del"), genre_item_path(@genre,item), method: :delete, class:'item-destroy',data: { confirm: '削除しますか？' }  %></td>
       </tr>
     <% end %>
   </div>
