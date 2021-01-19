@@ -1,7 +1,7 @@
-  <div class="relative">
- <%= render "shared/header" %>
+<div class="relative">
+  <%= render "shared/header" %>
 
-<div class='main'>
+  <div class='main'>
 
   <%# 金額の可視化部分 %>
   <div class ="page-title">
@@ -30,7 +30,6 @@
        </p>
       </div>
     </div>
-    <%# 金額の可視化部分 %>
 
   <h2 class='heading'>アイテム一覧</h2>
   <div class="add-to">
@@ -44,24 +43,20 @@
       <%= f.collection_select :category_id_eq, Category.all ,:id, :name,  include_blank: '指定なし' %>
       <%= f.label :name_eq, 'ステータス：' %>
       <%= f.collection_select :status_id_eq, Status.all ,:id, :name,  include_blank: '指定なし'  %>
-      <%# <%= f.label :name_eq, '購入月' %> 
-      <%# <%= f.collection_select :name_eq, @items, :purchase_date, :purchase_date,  include_blank: '指定なし' %> 
       <br class="br-tb"><%= f.label :price, '価格：' %>
-      <%= f.search_field :price_gteq %>円
-        〜
+      <%= f.search_field :price_gteq %>円〜
       <%= f.search_field :price_lteq %>円
       <%= f.submit '絞り込み', :class=>"btn", id:"search-btn"%>
     <% end %>
   </div>
-  <%# //アイテムの検索 %>
 
   <%# //アイテムのすべてを展開 %>
   <table class='table-lists'>
     <tr class='item-list'>
       <th><%="カテゴリー名" %></th><th><%="商品名" %></th><th><%="金額" %></th><th><%="個数" %><th><%="合計金額" %></th></th><th><%="発売日" %></th><th><%="購入日" %><th><%="ステータス" %></th><th><%="編集" %></th><th><%="削除" %></th>
     </tr>
-  <div class='item-contents'>
-  <tr class="item-list-sub"><th colspan="10">購入済み</th></tr>
+    <div class='item-contents'>
+    <tr class="item-list-sub"><th colspan="10">購入済み</th></tr>
     <% @item1.each do |item| %>
       <tr class='item-list'>
          <td><%= item.category.name %></td>
@@ -112,7 +107,7 @@
     <% end %>
   </div>
   </table>
-  <%# //アイテムのすべてを展開 %>
-</div>
+
+  </div>
 </div>
 <%= render "shared/footer" %>

@@ -1,11 +1,11 @@
-  <div class="relative">
-<%= render "shared/header" %>
-<div class="input-contents">
-  <div class="input-main">
-    <h2 class="input-title">推しの情報を入力</h2>
-    <%= form_with model: @genre, url: genres_path, local: true do |f| %>
+<div class="relative">
+  <%= render "shared/header" %>
+  <div class="input-contents">
+    <div class="input-main">
+      <h2 class="input-title">推しの情報を入力</h2>
+      <%= form_with model: @genre, url: genres_path, local: true do |f| %>
 
-    <%= render 'shared/error_messages', model: f.object %>
+      <%= render 'shared/error_messages', model: f.object %>
 
     <%# ジャンルアイコン %>
     <div class="img-upload">
@@ -14,14 +14,12 @@
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
+        <p>クリックしてファイルをアップロード</p>
         <%= f.file_field :image, id:"item-image" %>
         <div id="image-list"></div>
       </div>
     </div>
-    <%# /ジャンルアイコン%>
+
     <%# テーマ名 %>
     <div class="new-items">
       <div class="weight-bold-text">
@@ -30,28 +28,24 @@
       </div>
       <%= f.text_area :theme, class:"items-text", id:"item-name", placeholder:"テーマ（必須 20文字まで)", maxlength:"20" %>
     </div>
-    <%# /テーマ名 %>
 
     <%# 月額上限設定 %>
     <div class="set-amount">
       <div class="weight-bold-text">
-         月額上限
+        月額上限
         <span class="indispensable">必須</span>
          <%= f.text_field :set_amount, class:"price-input", id:"item-price", placeholder:"例）30,000" %>
-          <span class="price-yen">円</span>
-        </div>
-        </span>
+        <span class="price-yen">円</span>
+      </div>
     </div>
-    <%# /月額上限設定 %>
 
     <div class="input-btn-contents">
       <%= f.submit "登録する", class:"input-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
-  </div>
 
-  <% end %>
-</div>
+      <% end %>
+   </div>
 
-<%= render "shared/footer" %>
+  <%= render "shared/footer" %>
 </div>
