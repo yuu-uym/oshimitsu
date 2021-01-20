@@ -11,7 +11,7 @@
 .title-contents{
   width: 100vw;
   height: 15vh;
-  background-image: image-url('5422.jpg');
+  background-image: image-url('about.jpg');
   background-size: cover;
 }
 
@@ -112,10 +112,25 @@ img{
 
 .search-back a{
   text-decoration: none;
-  background-color: #ffe5e5;
   color: #333;
   padding: 5px 20px;
-  border-radius: 20px;
+}
+
+.search-back {
+  margin: auto;
+  width: 30vw;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background:#ffe5e5;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #f8b2b2;
+  border-radius: 3px;
+}
+.search-back:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
 }
 
 .search-form{

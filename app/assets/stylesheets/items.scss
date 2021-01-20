@@ -5,7 +5,7 @@
 /* アイテムリスト */
 .item-list{
   list-style: none;
-  background-color:#fbd7d7;
+  background-color:#d6ebff;
 }
 .item-list a{
   text-decoration: none;
@@ -13,7 +13,7 @@
 }
 
 .item-list-sub{
-  background-color: #ffeeee;
+  background-color: #eff7ff;
   font-size: 2.5vmin;
 }
 
@@ -28,13 +28,13 @@ table td {
 
 table {
   border-collapse: collapse;
-  border: solid 2px pink;
+  border: solid 2px #ffffff;
   width: 100%;
   white-space: nowrap;
   }
 
 table th, table td {
-  border: solid 1px pink;
+  border: solid 3px #e0e0e0;
 }
 
 .table-lists{
@@ -48,30 +48,110 @@ table th, table td {
   height: 3vmin;
 }
 
-.add-to{
-  margin: 10px;
-}
 .add-to a{
   text-decoration: none;
-  background-color: #ffe5e5;
   color: #333;
   padding: 3px 20px;
   border-radius: 20px;
 }
 
-.btn{
-  border: solid 2px white;
-  background-color: #ffe5e5;
-  border-radius: 20px;
-  padding: 5px;
+.add-to {
+  margin: 10px;
+  display: inline-block;
+  position: relative;
+  padding: 0.2em 0.8em;
+  text-decoration: none;
+  background: #ffe5e5;/*ボタン色*/
+  color:  #333;
+  border-bottom: solid 5px #fc9c9c;/*ボタン色より暗めに*/
+  border-right: solid 5px #fab1b1;/*ボタン色より暗めに*/
 }
+
+
+.add-to:before {  
+  content: " ";
+  position: absolute;
+  bottom: -5px;
+  left: -1px;
+  width: 0;
+  height: 0;
+  border-width: 0 6px 6px 0px;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: #FFF;
+}
+
+.add-to:after {  
+  content: " ";
+  position: absolute;
+  top: -1px;
+  right: -5px;
+  width: 0;
+  height: 0;
+  border-width: 0px 6px 6px 0px;
+  border-style: solid;
+  border-color: #FFF;
+  border-bottom-color: transparent;
+}
+
+.add-to:active {
+  /*ボタンを押したとき*/
+  border:none;
+  -webkit-transform: translate(6px,6px);
+  transform: translate(6px,6px);
+}
+
+.add-to:after, .btn-square-slant:active:before {
+  content: none;/*ボタンを押すと線が消える*/
+}
+
+
 
 /* Twitter */
-
-.share_link_twitter{
-  border: solid 2px white;
-  background-color: #a7ddff;
-  border-radius: 20px;
-  font-size: 3vmin;
-}
-
+.share_link_twitter {
+    display: inline-block;
+    position: relative;
+    padding: 0.2em 0.8em;
+    text-decoration: none;
+    background: #7ea4f5;/*ボタン色*/
+    color: white;
+    border-bottom: solid 5px #36528c;/*ボタン色より暗めに*/
+    border-right: solid 5px #5375bd;/*ボタン色より暗めに*/
+  }
+  
+  .share_link_twitter:before {  
+    content: " ";
+    position: absolute;
+    bottom: -5px;
+    left: -1px;
+    width: 0;
+    height: 0;
+    border-width: 0 6px 6px 0px;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-color: #FFF;
+  }
+  
+  .share_link_twitter:after {  
+    content: " ";
+    position: absolute;
+    top: -1px;
+    right: -5px;
+    width: 0;
+    height: 0;
+    border-width: 0px 6px 6px 0px;
+    border-style: solid;
+    border-color: #FFF;
+    border-bottom-color: transparent;
+  }
+  
+  .share_link_twitter:active {
+    /*ボタンを押したとき*/
+    border:none;
+    -webkit-transform: translate(6px,6px);
+    transform: translate(6px,6px);
+  }
+  
+  .share_link_twitter:active:after, .btn-square-slant:active:before {
+    content: none;/*ボタンを押すと線が消える*/
+  }

@@ -3,7 +3,7 @@ window.addEventListener('load', function(){
   const shareLinkTwitter = document.getElementById("share_link_twitter")
 
   shareLinkTwitter.addEventListener('mouseover', function(){
-    shareLinkTwitter.setAttribute("style", "background-color:#42a0ff")
+    shareLinkTwitter.setAttribute("style", "background-color:#668ad8")
   })
 
   shareLinkTwitter.addEventListener('mouseout', function(){
@@ -13,7 +13,7 @@ window.addEventListener('load', function(){
   const inputBtn = document.getElementById("input-btn")
 
   inputBtn.addEventListener('mouseover', function(){
-    inputBtn.setAttribute("style", "background-color:#ff8484")
+    inputBtn.setAttribute("style", "background-color:#fac9c9")
   })
 
   inputBtn.addEventListener('mouseout', function(){
@@ -23,7 +23,7 @@ window.addEventListener('load', function(){
   const searchBtn = document.getElementById("search-btn")
 
   searchBtn.addEventListener('mouseover', function(){
-    searchBtn.setAttribute("style", "background-color:#ff8484;")
+    searchBtn.setAttribute("style", "background-color:#fac9c9;")
   })
 
   searchBtn.addEventListener('mouseout', function(){
