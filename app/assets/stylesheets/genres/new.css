@@ -85,6 +85,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  white-space: nowrap
 }
 
 .price-content {
@@ -94,6 +95,37 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/* URL */
+.url-content{
+  width: 100%;
+}
+
+.url-list{
+  list-style: none;
+  background-color:#ffe5e5;
+}
+.url-list a{
+  text-decoration: none;
+  color: #333;
+}
+
+.url-list-sub{
+  background-color: #eff7ff;
+  font-size: 2.5vmin;
+}
+
+.url-input {
+  height: 5vh;
+  text-align: right;
+  padding-right: 10px;
+  border: none;
+  width: 100%;
+}
+
+.url-input::placeholder {
+  text-align: left;
 }
 
 .price-text {
@@ -112,6 +144,8 @@
   padding-right: 10px;
 }
 /*月額上限 */
+
+
 
 /* 下部ボタン */
 .input-btn-contents {

@@ -59,7 +59,7 @@ class GenresController < ApplicationController
   end
 
   def genre_params
-    params.require(:genre).permit(:theme, :image, :set_amount).merge(user_id: current_user.id)
+    params.require(:genre).permit(:theme, :image, :set_amount, :title1, :url1, :title2, :url2, :title3, :url3).merge(user_id: current_user.id)
   end
 
   def search_product
