@@ -11,7 +11,16 @@
       <%= link_to '削除', genre_path, method: :delete, class:'gnav-link' ,data: { confirm: '削除しますか？' } %>
       <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}&text=#{Time.now.month}月 #{@genre.theme} に貢いだ金額は #{purchase_price_month} 円★/&hashtags=OshiMitsu&hashtags=推し貢", class: 'share_link_twitter', data: { show_count: false }, title: 'Twitter', target: '_blank', id:'share_link_twitter' %>
     </div>
-      <br><%= image_tag @genre.image, class: "item-img"  %>
+
+     <div class="image-url">
+      <%= image_tag @genre.image, class: "item-img"%>
+      <ul class="url-ul">
+      <li><%= @genre.title1 %><%=link_to "#{@genre.url1}", @genre.url1 , target: :_blank%></li>
+      <li><%= @genre.title2 %><%= @genre.url2 %></li>
+      <li><%= @genre.title3 %><%= @genre.url3 %></li>
+      </ul>
+     </div>
+
     <div class='price-contents'>
       <div class='price-all'>
         <h3 class='heading'>使った金額</h3>
