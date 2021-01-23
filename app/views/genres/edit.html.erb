@@ -1,3 +1,4 @@
+<div class="relative">
 <%= render "shared/header" %>
 
 <div class="input-contents">
@@ -37,6 +38,30 @@
         </div>
         </span>
     </div>
+
+    <%# URL1 %>
+    <div class="url-content">
+    <div class="weight-bold-text">
+     ▼推しの関連サイトをまとめて登録▼
+    </div>
+    <table class='url-lists'>
+      <tr class='url-list'>
+      <th><%="サイトの種類" %></th><th><%="URL" %></th>
+    </tr>
+    <tr>
+       <th><%= f.text_field :title1, class:"url-input", id:"item-price", placeholder:"例）Twitterアカウント" %></th>
+       <th><%= f.text_field :url1, class:"url-input", id:"item-price", placeholder:"例）https://twitter.com/" %></th>
+    </tr>
+    <tr>
+       <th><%= f.text_field :title2, class:"url-input", id:"item-price", placeholder:"例）公式サイト" %></th>
+       <th><%= f.text_field :url2, class:"url-input", id:"item-price", placeholder:"例）https://official-site.com/" %></th>
+    </tr>
+    <tr>
+       <th><%= f.text_field :title3, class:"url-input", id:"item-price", placeholder:"例）関連サイト" %></th>
+       <th><%= f.text_field :url3, class:"url-input", id:"item-price", placeholder:"例）https://related-site.com/" %></th>
+    </tr>
+    </table>
+    </div>
     
     <div class="input-btn-contents">
       <%= f.submit "登録する", class:"input-btn" %>
@@ -48,3 +73,4 @@
 </div>
 
 <%= render "shared/footer" %>
+</div>
