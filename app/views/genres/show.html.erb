@@ -5,21 +5,21 @@
 
   <%# 金額の可視化部分 %>
   <div class ="page-title">
-    <h1 class="heading"><br><%= "#{@genre.theme}のお部屋" %></h1>
+    <h1 class="genre-title"><br><%= "#{@genre.theme}のお部屋" %></h1>
     <div class="list">
-      <%= link_to '編集', edit_genre_path, class: "gnav-link" %>
-      <%= link_to '削除', genre_path, method: :delete, class:'gnav-link' ,data: { confirm: '削除しますか？' } %>
+      <%= link_to '編集', edit_genre_path, class: "genre_btn" %>
+      <%= link_to '削除', genre_path, method: :delete, class:'genre_btn' ,data: { confirm: '削除しますか？' } %>
       <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}&text=#{Time.now.month}月 #{@genre.theme} に貢いだ金額は #{purchase_price_month} 円★/&hashtags=OshiMitsu&hashtags=推し貢", class: 'share_link_twitter', data: { show_count: false }, title: 'Twitter', target: '_blank', id:'share_link_twitter' %>
     </div>
 
      <div class="image-url">
       <%= image_tag @genre.image, class: "item-img"%>
-      <ul class="url-ul">
-      <li><%= @genre.title1 %><%=link_to "#{@genre.url1}", @genre.url1 , target: :_blank%></li>
-      <li><%= @genre.title2 %><%= @genre.url2 %></li>
-      <li><%= @genre.title3 %><%= @genre.url3 %></li>
-      </ul>
      </div>
+     <div class="url-ul">
+   　　URL①　　<% if @genre.title1.empty? %>---未登録---<% else %><%=link_to "#{@genre.title1}", @genre.url1 , target: :_blank%><%end%>
+      <br>　　URL②　　<% if @genre.title2.empty? %>---未登録---<% else %><%=link_to "#{@genre.title2}", @genre.url2 , target: :_blank%><%end%>
+      <br>　　URL③　　<% if @genre.title3.empty? %>---未登録---<% else %><%=link_to "#{@genre.title3}", @genre.url3 , target: :_blank%><%end%>
+      </div>
 
     <div class='price-contents'>
       <div class='price-all'>
