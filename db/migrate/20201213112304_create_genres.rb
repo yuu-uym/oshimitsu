@@ -7,8 +7,8 @@ class CreateGenres < ActiveRecord::Migration[6.0]
       t.text :url1
       t.text :title2
       t.text :url2
-      t.text :title2
-      t.text :url2
+      t.text :title3
+      t.text :url3
       t.timestamps
     end
   end
