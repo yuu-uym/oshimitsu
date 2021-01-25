@@ -45,6 +45,10 @@ class BbssController < ApplicationController
     end
   end
 
+  def search
+    @bbss = Bbs.search(params[:keyword])
+  end
+
   private
   def bbs_params
     params.require(:bbs).permit(:title, :overview).merge(user_id: current_user.id)

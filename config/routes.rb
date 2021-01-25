@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'genres#index'
-  resources :bbss
+
+  resources :bbss do
+  collection do
+    get 'search'
+    get 'user'
+  end
+end
   resources :genres do
     get 'items/search'
     resources :items
