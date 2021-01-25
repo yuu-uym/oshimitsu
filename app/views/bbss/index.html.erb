@@ -16,7 +16,11 @@
     
      <%# 掲示板一覧 %>
     <div class="bbs-titles">
-    ここに掲示板が一覧表示されます
+      <% @bbss.each do |bbs| %>
+      <%= bbs.title%>
+      <%= bbs.created_at%>
+      <%= bbs.overview%>
+    <%end%>
     </div>
 
   </div>
