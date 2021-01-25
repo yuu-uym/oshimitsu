@@ -1,1 +1,24 @@
-掲示板ページ
+<div class="relative">
+  <%= render "shared/header" %>
+  <div class='main'>
+
+    <div class ="page-title">
+      <br><h1 class="genre-title">掲示板ページ</h1>
+    </div>
+
+    <%# 各種リンク %>
+    <div class="bbs-links">
+      <%= link_to "検索", "#" ,class:"bbs-link"%>
+      <%= link_to "新規作成", new_bbss_path,class:"bbs-link"%>
+      <%= link_to "自分の掲示板", "#",class:"bbs-link"%>
+      <%= link_to "コメントした掲示板", "#",class:"bbs-link"%>
+    </div>
+    
+     <%# 掲示板一覧 %>
+    <div class="bbs-titles">
+    ここに掲示板が一覧表示されます
+    </div>
+
+  </div>
+<%= render "shared/footer" %>
+</div>
