@@ -4,7 +4,7 @@
 
     <div class ="page-title">
       <br><h1 class="genre-title"><%="#{@bbs.title}"%></h1>
-      <%=link_to 'もどる', :back, class: "genre_btn" %>
+      <%=link_to 'もどる', bbss_index_path, class: "genre_btn" %>
       <% if current_user.id == @bbs.user.id%>
         <%= link_to '編集', edit_bbss_path, class: "genre_btn" %>
         <%= link_to '削除', bbss_path, method: :delete, class:'genre_btn' ,data: { confirm: '削除しますか？' } %>
