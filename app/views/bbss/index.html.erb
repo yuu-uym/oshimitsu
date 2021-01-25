@@ -17,9 +17,12 @@
      <%# 掲示板一覧 %>
     <div class="bbs-titles">
       <% @bbss.each do |bbs| %>
-      <%= bbs.title%>
-      <%= bbs.created_at%>
-      <%= bbs.overview%>
+      <div class="bbs-title">
+        <span class="heading"><%= link_to "#{bbs.title}",bbss_path(bbs.id) %></span>
+        <%= bbs.user.nickname %>
+        <%= bbs.created_at %>
+        <div class="bbs-overview"><%= bbs.overview %></div>
+      </div>
     <%end%>
     </div>
 

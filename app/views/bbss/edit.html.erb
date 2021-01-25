@@ -1,0 +1,37 @@
+<div class="relative">
+  <%= render "shared/header" %>
+  <div class="input-contents">
+    <div class="input-main">
+      <h2 class="input-title">掲示板の修正</h2>
+      <%= form_with model: @bbs, url: bbss_path, local: true do |f| %>
+
+      <%# render 'shared/error_messages', model: f.object %>
+
+    <%# テーマ名 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        掲示板のタイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"items-text", id:"item-name", placeholder:"タイトル（必須 20文字まで)", maxlength:"20" %>
+    </div>
+
+    <%# 概要 %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        概要
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :overview, class:"items-text", id:"item-name", placeholder:"タイトル（必須 20文字まで)", maxlength:"20" %>
+    </div>
+
+    <div class="input-btn-contents">
+      <%= f.submit "登録する", class:"input-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+
+      <% end %>
+   </div>
+
+  <%= render "shared/footer" %>
+</div>
