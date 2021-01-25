@@ -35,7 +35,15 @@ class BbssController < ApplicationController
     end
   end
 
-  
+  def destroy
+    @bbs = Bbs.find(params[:id])
+    if @bbs.user_id == current_user.id
+      @bbs.destroy
+      redirect_to bbss_index_path
+    else
+      redirect_to action: :index
+    end
+  end
 
   private
   def bbs_params
