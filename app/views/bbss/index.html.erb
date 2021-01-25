@@ -21,7 +21,7 @@
       <div class="bbs-title">
         <span class="heading"><%= link_to "#{bbs.title}",bbss_path(bbs.id) %></span>
         <%= bbs.user.nickname %>
-        <%= bbs.created_at %>
+        <%= l bbs.created_at %>
         <div class="bbs-overview"><%= bbs.overview %></div>
       </div>
     <%end%>
