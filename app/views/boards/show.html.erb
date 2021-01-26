@@ -22,7 +22,7 @@
     <%# コメント %>
     <div class="bbs-comment">
     <%= form_with(model: [@board, @comment], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメント入力欄。空欄では投稿できません。" ,:class=>"board-comment"%>
+        <%= form.text_area :text, placeholder: "コメント入力欄。200文字まで。空欄では投稿できません。" ,:class=>"board-comment" , maxlength:"200"%>
         <%= form.submit "投稿する" ,:class=>"genre_btn"%>
       <% end %>
     </div>
