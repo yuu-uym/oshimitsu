@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
 
   def index
-    @boards = Board.all
+    @boards = Board.all.order("created_at DESC")
   end
 
   def new
@@ -20,7 +20,7 @@ class BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     @comment = Comment.new
-    @comments = @board.comments.includes(:user)
+    @comments = @board.comments.includes(:user).order("created_at DESC")
   end
 
   def edit
