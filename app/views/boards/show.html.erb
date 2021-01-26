@@ -20,7 +20,7 @@
     <div class="bbs-comment">
     <%= form_with(model: [@board, @comment], local: true) do |form| %>
         <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "SEND" %>
+        <%= form.submit "投稿する" ,:class=>"add-to"%>
       <% end %>
     </div>
     

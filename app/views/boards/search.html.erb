@@ -11,19 +11,19 @@
     <div class="bbs-links">
       <%= form_with url: search_boards_path, local: true, method: :get, class: "search-form" do |f| %>
         <%= f.text_field :keyword, placeholder: "掲示板を検索する", class: "search-input" %>
-        <%= f.submit "検索", class: "search-btn" %>
+        <%= f.submit "検索", :class=>"add-to" %>
       <% end %>
-      <%= link_to "新規作成", new_board_path,class:"bbs-link"%>
+      <%= link_to "新規作成", new_board_path,:class=>"add-to"%>
     </div>
     
      <%# 掲示板一覧 %>
-    <div class="bbs-titles">
-      <% @boards.each do |board| %>
+   <div class="bbs-titles">
+      <% @boards.each do |boards| %>
       <div class="bbs-title">
-        <span class="heading"><%= link_to "#{board.title}",boards_path(board.id) %></span>
-        <%= board.user.nickname %>
-        <%= l board.created_at %>
-        <div class="bbs-overview"><%= board.overview %></div>
+        <span class="board-title"><%= link_to "#{boards.title}",board_path(boards.id) %></span>
+        <div class="board-content"><%= boards.user.nickname %>
+        <span class="board-date"><%= l boards.created_at %></span></div>
+        <div class="bbs-overview"><%= boards.overview %></div>
       </div>
     <%end%>
     </div>
