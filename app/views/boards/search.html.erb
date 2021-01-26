@@ -4,26 +4,26 @@
 
     <div class ="page-title">
       <br><h1 class="genre-title"><%="検索結果"%></h1>
-      <%=link_to 'もどる', bbss_index_path, class: "genre_btn" %>
+      <%=link_to 'もどる',  boards_path, class: "genre_btn" %>
     </div>
 
     <%# 各種リンク %>
     <div class="bbs-links">
-      <%= form_with url: search_bbss_index_path, local: true, method: :get, class: "search-form" do |f| %>
+      <%= form_with url: search_boards_path, local: true, method: :get, class: "search-form" do |f| %>
         <%= f.text_field :keyword, placeholder: "掲示板を検索する", class: "search-input" %>
         <%= f.submit "検索", class: "search-btn" %>
       <% end %>
-      <%= link_to "新規作成", new_bbss_path,class:"bbs-link"%>
+      <%= link_to "新規作成", new_board_path,class:"bbs-link"%>
     </div>
     
      <%# 掲示板一覧 %>
     <div class="bbs-titles">
-      <% @bbss.each do |bbs| %>
+      <% @boards.each do |board| %>
       <div class="bbs-title">
-        <span class="heading"><%= link_to "#{bbs.title}",bbss_path(bbs.id) %></span>
-        <%= bbs.user.nickname %>
-        <%= l bbs.created_at %>
-        <div class="bbs-overview"><%= bbs.overview %></div>
+        <span class="heading"><%= link_to "#{board.title}",boards_path(board.id) %></span>
+        <%= board.user.nickname %>
+        <%= l board.created_at %>
+        <div class="bbs-overview"><%= board.overview %></div>
       </div>
     <%end%>
     </div>

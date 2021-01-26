@@ -2,8 +2,8 @@
   <%= render "shared/header" %>
   <div class="input-contents">
     <div class="input-main">
-      <h2 class="input-title">掲示板の修正</h2>
-      <%= form_with model: @bbs, url: bbss_path, local: true do |f| %>
+      <h2 class="input-title">新しい掲示板を作成する</h2>
+      <%= form_with model: @board, url: boards_path, local: true do |f| %>
 
       <%# render 'shared/error_messages', model: f.object %>
 
@@ -27,7 +27,7 @@
 
     <div class="input-btn-contents">
       <%= f.submit "登録する", class:"input-btn" %>
-      <%=link_to 'もどる', bbss_index_path, class:"back-btn" %>
+      <%=link_to 'もどる', boards_path, class:"back-btn" %>
     </div>
 
       <% end %>

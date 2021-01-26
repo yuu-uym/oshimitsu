@@ -2,12 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'genres#index'
 
-  resources :bbss do
-  collection do
-    get 'search'
-    get 'user'
+  resources :boards do
+    resources :comments, only: :create
+    collection do
+      get 'search'
+      get 'user'
+    end
   end
-end
+
   resources :genres do
     get 'items/search'
     resources :items
