@@ -4,36 +4,42 @@
 
     <div class ="page-title">
       <br><h1 class="genre-title"><%="#{@board.title}"%></h1>
-      <%=link_to 'もどる', boards_path, class: "genre_btn" %>
+      <br><%=link_to 'もどる', boards_path, class: "genre_btn" %>
       <% if current_user.id == @board.user.id%>
         <%= link_to '編集',  edit_board_path, class: "genre_btn" %>
         <%= link_to '削除', boards_path, method: :delete, class:'genre_btn' ,data: { confirm: '削除しますか？' } %>
       <%end%>
     </div>
 
-    <div class="bbs-title">
-        <%= "#{@board.user.nickname}さんの投稿" %><%= l @board.created_at %>
+    <div class="bbs-titles">  
+      <div class="bbs-title">
+        <div class="board-content"><%= @board.user.nickname %>
+          <span class="board-date"><%= l @board.created_at %></span></div>
         <div class="bbs-overview"><%= @board.overview %></div>
+      </div>
     </div>
 
     <%# コメント %>
     <div class="bbs-comment">
     <%= form_with(model: [@board, @comment], local: true) do |form| %>
-        <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= form.submit "投稿する" ,:class=>"add-to"%>
+        <%= form.text_area :text, placeholder: "コメントする" ,:class=>"board-comment"%>
+        <%= form.submit "投稿する" ,:class=>"genre_btn"%>
       <% end %>
     </div>
     
-    <div class="bbs-title">
-    <h4>＜コメント一覧＞</h4>
+    <div class="comment-list">コメント一覧</div>
+
+    <div class="bbs-titles">
       <% @comments.each do |comment| %>
-        <p>
-          <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
-          <%= comment.text %>
-        </p>
+      <div class="bbs-title">
+       <div class="board-content"><%= comment.user.nickname %>
+        <span class="board-date"><%= l comment.created_at %></span></div>
+        <div class="bbs-overview"><%= comment.text %></div>
+      </div>
       <% end %>
     </div>
     
+
 
   </div>
 <%= render "shared/footer" %>

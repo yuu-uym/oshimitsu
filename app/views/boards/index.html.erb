@@ -10,9 +10,9 @@
     <div class="bbs-links">
       <%= form_with url: search_boards_path, local: true, method: :get, class: "search-form" do |f| %>
         <%= f.text_field :keyword, placeholder: "掲示板を検索する", class: "search-input",size:"30x20" %>
-        <%= f.submit "検索", :class=>"add-to" %>
+        <%= f.submit "検索", :class=>"genre_btn" %>
       <% end %>
-      <%= link_to "新しい掲示板を作成する",  new_board_path,:class=>"add-to"%>
+      <%= link_to "新しい掲示板を作成する",  new_board_path,:class=>"genre_btn"%>
     </div>
     
      <%# 掲示板一覧 %>
