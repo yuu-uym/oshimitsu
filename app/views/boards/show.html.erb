@@ -35,7 +35,7 @@
        <div class="board-content"><%= comment.user.nickname %>
         <span class="board-date"><%= l comment.created_at %></span>
         <% if current_user.id == comment.user.id%>
-        <%= link_to '削除', comment_path(comment.id), method: :delete, class:'genre_btn' ,data: { confirm: '削除しますか？' } %>
+        <%= link_to '削除', comment_path(comment.id), method: :delete, class:'gnav-link' ,data: { confirm: '削除しますか？' } %>
         <%end%></div>
         <div class="bbs-overview"><%= comment.text %></div>
       </div>
