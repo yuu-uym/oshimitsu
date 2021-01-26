@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get 'user'
     end
   end
-
+  resources :comments, only: :destroy
   resources :genres do
     get 'items/search'
     resources :items

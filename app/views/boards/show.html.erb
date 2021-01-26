@@ -7,7 +7,7 @@
       <br><%=link_to 'もどる', boards_path, class: "genre_btn" %>
       <% if current_user.id == @board.user.id%>
         <%= link_to '編集',  edit_board_path, class: "genre_btn" %>
-        <%= link_to '削除', boards_path, method: :delete, class:'genre_btn' ,data: { confirm: '削除しますか？' } %>
+        <%= link_to '削除', board_path, method: :delete, class:'genre_btn' ,data: { confirm: '削除しますか？' } %>
       <%end%>
     </div>
 
@@ -33,7 +33,10 @@
       <% @comments.each do |comment| %>
       <div class="bbs-title">
        <div class="board-content"><%= comment.user.nickname %>
-        <span class="board-date"><%= l comment.created_at %></span></div>
+        <span class="board-date"><%= l comment.created_at %></span>
+        <% if current_user.id == comment.user.id%>
+        <%= link_to '削除', comment_path(comment.id), method: :delete, class:'genre_btn' ,data: { confirm: '削除しますか？' } %>
+        <%end%></div>
         <div class="bbs-overview"><%= comment.text %></div>
       </div>
       <% end %>
