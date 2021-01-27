@@ -2,7 +2,7 @@
   <%= render "shared/header" %>
   <div class='main'>
 
-    <div class ="page-title">
+    <div class ="board-title">
       <br><h1 class="genre-title"><%="#{@board.title}"%></h1>
       <br><%=link_to 'もどる', boards_path, class: "genre_btn" %>
       <% if current_user.id == @board.user.id%>
