@@ -96,21 +96,20 @@
 # 実装した機能についてのGIFと説明	
 
 ## ジャンル、アイテムの登録機能
-  Gif ジャンルの登録 https://gyazo.com/ebc3c38b57a196ffd4918f93549febc9
-  Gif アイテムの登録 https://gyazo.com/84e71a00398ce34b9d289aa259a404be
+  Gif 推しの登録 https://gyazo.com/33e517e613770054059d6c3255705960
+  Gif アイテムの登録 https://gyazo.com/9362ff7fe96039bc89877763a463f6cf
 ## 金額の表示機能
-  gyazo 全ての金額 https://gyazo.com/e396c7733e2f0aacb8ddbaaa49df6485
-  gyazo ジャンルの金額 https://gyazo.com/d710a2523b7987744a6c563eb3fae835
+  gyazo 全ての金額 https://gyazo.com/6e8b3000aec2a7f3417965f84982e900
+  gyazo 推しの金額 https://gyazo.com/de21d00d7c0cc91dbc91512938d077dc
 ## Twitterへのシェア
-  Gif https://gyazo.com/bbc311ca86a1ab2e3f110be3bea17421
+  Gif https://gyazo.com/b312b30d0e677a56e7e63ad2f754d0d2
 ## 絞り込み機能
-  Gif https://gyazo.com/5fa3dfa08da8c0a5d15a93c37594f90f
-
+  Gif https://gyazo.com/623c6a222c556117de9a5b0fc3d6a4a0
+## 掲示板機能
+  Gif https://gyazo.com/5399f653c8862f565e1285651c8d5013
 
 # 実装予定の機能	
-
 ## SNS認証
-
 
 # ローカルでの動作方法	
 
