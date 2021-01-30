@@ -25,6 +25,7 @@
         <div class="board-content"><%= boards.user.nickname %>
         <span class="board-date"><%= l boards.created_at %></span></div>
         <div class="bbs-overview"><%= boards.overview %></div>
+         <div class="comment-count"><%= "コメント(#{boards.comments.count})"%></div>
       </div>
     <%end%>
     </div>
